@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Hatofmonkeys]]></title>
+  <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
+  <link href="http://blog.hatofmonkeys.com/"/>
+  <updated>2011-10-25T23:39:14-07:00</updated>
+  <id>http://blog.hatofmonkeys.com/</id>
+  <author>
+    <name><![CDATA[Colin Humphreys]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Blogging With Octopress]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/"/>
+    <updated>2011-10-25T23:21:00-07:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress</id>
+    <content type="html"><![CDATA[<p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&#8217;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
+]]></content>
+  </entry>
+  
+</feed>
