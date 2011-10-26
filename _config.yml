@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://blog.hatofmonkeys.com
+title: Hatofmonkeys
+subtitle: Really.
+author: Colin Humphreys
 simple_search: http://google.com/search
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
@@ -62,7 +62,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: hatofmonkeys
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
@@ -83,15 +83,15 @@ pinboard_user:
 pinboard_count: 3
 
 # Delicious
-delicious_user:
+delicious_user: hatofmonkeys
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: hatofmonkeysblog
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-26558043-1
    
 # Facebook Like
 facebook_like: true   
