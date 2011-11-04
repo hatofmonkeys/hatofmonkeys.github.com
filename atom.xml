@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2011-10-25T23:57:18-07:00</updated>
+  <updated>2011-11-04T15:38:31-07:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Devops Days]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days/"/>
+    <updated>2011-11-04T14:35:00-07:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days</id>
+    <content type="html"><![CDATA[<p>I had the good fortune to attend <a href="http://devopsdays.org/events/2011-goteborg/">Devopsdays Goteborg</a> a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice <a href="http://www.jedi.be/">Patrick Debois</a> and the other organisers.</p>
+
+<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an open space to explore the problem entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
+
+<p><strong>&#8220;The business case for devops&#8221;</strong> (very faint on the board)</p>
+
+<p><img src="http://farm7.static.flickr.com/6226/6312913863_7f3b6b8e6a.jpg"></p>
+
+<p>This was probably because there was a tools-orientated openspace happening in another room.</p>
+
+<p><img src="http://farm7.static.flickr.com/6101/6312937459_4295fa1ed0.jpg"></p>
+
+<p>Devops&#8217;s achilles heel is the potential it has for being introspective(ignore the ITIL/process arguments; absolute nonsense) and purely tooling focused. Changing the THEM and US attitude from dev vs ops to devops vs <a href="http://www.youtube.com/watch?v=3CiGUMQZUgU">THE MANAGEMENT</a> just shifts the issue. Patrick Debois brilliantly summarises that we should, instead, be thinking about <a href="http://www.slideshare.net/jedi4ever/devopsdays-downundervfinal">*dev*ops*</a>; unfortunately some of the devops people I&#8217;ve met seem to be more interested in teaming up against others than including them.</p>
+
+<p>I&#8217;m taking a look at how I think we can address this problem, by perhaps changing the focus from &#8220;delivering&#8221; to &#8220;delivering value&#8221;. Coming from a devops background, I&#8217;m obviously going to create a tool to help me. That should teach those management types a lesson.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Blogging With Octopress]]></title>
