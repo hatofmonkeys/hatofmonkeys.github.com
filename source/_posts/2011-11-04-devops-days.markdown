@@ -7,7 +7,7 @@ categories:
 ---
 I had the good fortune to attend [Devopsdays Goteborg](http://devopsdays.org/events/2011-goteborg/) a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice [Patrick Debois](http://www.jedi.be/) and the other organisers.
 
-Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in "the business". I took my usual subtle, sensitive approach to a perceived problem and proposed an open space to explore the problem entitled "F**k devops, noone cares, where's my money?". Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn't seem to get a huge amount of traction.
+Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in "the business". I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled "F**k devops, noone cares, where's my money?". Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn't seem to get a huge amount of traction.
 
 **"The business case for devops"** (very faint on the board)
 
