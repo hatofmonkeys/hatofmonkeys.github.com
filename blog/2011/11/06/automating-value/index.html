@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blogging With Octopress - Hatofmonkeys</title>
+  <title>Automating Value - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="Tumblr seemed like an inappropriate place for my epic rants, so I&#8217;m giving Octopress a go. Like the cool kids do.
-">
+  <meta name="description" content="I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular Cucumber. Despite this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -78,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">Blogging With Octopress</h1>
+      <h1 class="entry-title">Automating Value</h1>
     
     
       <p class="meta">
@@ -89,14 +88,60 @@
 
   
 
-<time datetime="2011-10-25T23:21:00-07:00" pubdate>Oct 25<span>th</span>, 2011</time>
+<time datetime="2011-11-06T13:26:00-08:00" pubdate>Nov 6<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&#8217;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
+<div class="entry-content"><p>I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular <a href="http://cukes.info">Cucumber</a>. Despite this affection I’ve thought it a little unusual that BDD frameworks ignore/discard the business value proposition stated at the beginning of a feature. It’s always felt like we’re saying “that’s too difficult to do anything useful with, we’ll leave that to the business idiots”. With that in mind, and being a business idiot, I’m going to attempt to construct a model for value and automate the testing of business-based assertions.</p>
+
+<p>What I’m really trying to achieve is to extend the automated feedback cycle back into the business. The sooner the decision makers gain meaningful feedback about the impact of their decisions, the sooner they can start making useful decisions (and fewer useless ones).</p>
+
+<p>I think this is where the devops camp needs to join forces with the <a href="http://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898">lean startup</a> people (*dev*ops*). I’m very interested in exploring if there’s any useful mileage in attempting to automate the <a href="http://en.wikipedia.org/wiki/PDCA">Deming Cycle</a>, and if there isn’t, to examine the reasons why.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/400px-PDCA_Cycle.svg.png" alt="" /></p>
+
+<p>Humans are great for the <strong>PLAN</strong> (hypothesise) phase, although I’ve heard and read some interesting thoughts around AI and entropy being used to automate this (Skynet++).</p>
+
+<p>Devops and the associated tooling are great for the <strong>DO</strong> phase, and the <a href="http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912">Continuous Delivery bible</a> has had a massive impact here.</p>
+
+<p><strong>CHECK</strong> is often currently left either to chance or abstracted via some BI monstrosity. This is where I feel we need we may benefit from exploring automating assertions on business value. Most companies I work with have some capabilities around business metrics, but they’re infrequently linked back to the planning/strategic capabilities.</p>
+
+<p>In theory an automated system can use some form of immunity metrics to roll back if the business assertions are not met, thus providing an element of automation around the <strong>ACT</strong> phase. I’ve seen a variety of immune systems employed around business metrics, however they often seem to be used as a tactical weapon rather than strategically to inform business decisions.</p>
+
+<p>There are clear issues with attempting any kind of valid implementation, the obvious ones being around gaining useful feedback on a value proposition. From what I’ve looked at so far, automating value raises far more questions than it answers, but if we don’t push the boundaries on automating the feedback cycle then I feel we’re just locally optimising. I’ve had some really useful input from the folks at <a href="http://www.opencredo.com/">OpenCredo</a>, who are thinking along similar (but better formulated) lines, now I’m trying to actually make this concrete.</p>
+
+<p>At the moment I’m working on extending cucumber, specifically on <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">“Lines 2-4 are unparsed text, which is expected to describe the business value of this feature”</a>. I’d like to change this, making the business value executable (and testable) so we can assert the business value is being delivered as promised.</p>
+
+<p>I’d like to change this</p>
+
+<pre><code>  Feature: Addition
+    In order to avoid silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>To this</p>
+
+<pre><code>  Feature: Addition
+    In order to make 0 silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>Or this</p>
+
+<pre><code>  Feature: Addition
+    In order to make fewer silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.</p>
+
+<p>Attempting to write the code for this has made me realise how much time I&#8217;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
 </div>
 
 
@@ -114,7 +159,7 @@
 
   
 
-<time datetime="2011-10-25T23:21:00-07:00" pubdate>Oct 25<span>th</span>, 2011</time>
+<time datetime="2011-11-06T13:26:00-08:00" pubdate>Nov 6<span>th</span>, 2011</time>
       
 
 
@@ -122,7 +167,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -135,8 +180,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2011/11/04/devops-days/" title="Previous Post: Devops Days">&laquo; Devops Days</a>
       
-        <a class="basic-alignment right" href="/blog/2011/11/04/devops-days/" title="next Post: Devops Days">Devops Days &raquo;</a>
       
     </p>
   </footer>
@@ -247,8 +292,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value';
         var disqus_script = 'embed.js';
       
     (function () {

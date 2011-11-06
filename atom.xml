@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2011-11-04T15:38:31-07:00</updated>
+  <updated>2011-11-06T05:46:02-08:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -14,13 +14,68 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Automating Value]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/"/>
+    <updated>2011-11-06T13:26:00-08:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value</id>
+    <content type="html"><![CDATA[<p>I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular <a href="http://cukes.info">Cucumber</a>. Despite this affection I’ve thought it a little unusual that BDD frameworks ignore/discard the business value proposition stated at the beginning of a feature. It’s always felt like we’re saying “that’s too difficult to do anything useful with, we’ll leave that to the business idiots”. With that in mind, and being a business idiot, I’m going to attempt to construct a model for value and automate the testing of business-based assertions.</p>
+
+<p>What I’m really trying to achieve is to extend the automated feedback cycle back into the business. The sooner the decision makers gain meaningful feedback about the impact of their decisions, the sooner they can start making useful decisions (and fewer useless ones).</p>
+
+<p>I think this is where the devops camp needs to join forces with the <a href="http://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898">lean startup</a> people (*dev*ops*). I’m very interested in exploring if there’s any useful mileage in attempting to automate the <a href="http://en.wikipedia.org/wiki/PDCA">Deming Cycle</a>, and if there isn’t, to examine the reasons why.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/400px-PDCA_Cycle.svg.png" alt="" /></p>
+
+<p>Humans are great for the <strong>PLAN</strong> (hypothesise) phase, although I’ve heard and read some interesting thoughts around AI and entropy being used to automate this (Skynet++).</p>
+
+<p>Devops and the associated tooling are great for the <strong>DO</strong> phase, and the <a href="http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912">Continuous Delivery bible</a> has had a massive impact here.</p>
+
+<p><strong>CHECK</strong> is often currently left either to chance or abstracted via some BI monstrosity. This is where I feel we need we may benefit from exploring automating assertions on business value. Most companies I work with have some capabilities around business metrics, but they’re infrequently linked back to the planning/strategic capabilities.</p>
+
+<p>In theory an automated system can use some form of immunity metrics to roll back if the business assertions are not met, thus providing an element of automation around the <strong>ACT</strong> phase. I’ve seen a variety of immune systems employed around business metrics, however they often seem to be used as a tactical weapon rather than strategically to inform business decisions.</p>
+
+<p>There are clear issues with attempting any kind of valid implementation, the obvious ones being around gaining useful feedback on a value proposition. From what I’ve looked at so far, automating value raises far more questions than it answers, but if we don’t push the boundaries on automating the feedback cycle then I feel we’re just locally optimising. I’ve had some really useful input from the folks at <a href="http://www.opencredo.com/">OpenCredo</a>, who are thinking along similar (but better formulated) lines, now I’m trying to actually make this concrete.</p>
+
+<p>At the moment I’m working on extending cucumber, specifically on <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">“Lines 2-4 are unparsed text, which is expected to describe the business value of this feature”</a>. I’d like to change this, making the business value executable (and testable) so we can assert the business value is being delivered as promised.</p>
+
+<p>I’d like to change this</p>
+
+<pre><code>  Feature: Addition
+    In order to avoid silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>To this</p>
+
+<pre><code>  Feature: Addition
+    In order to make 0 silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>Or this</p>
+
+<pre><code>  Feature: Addition
+    In order to make fewer silly mistakes
+    As a math idiot
+    I want to be told the sum of two numbers
+</code></pre>
+
+<p>And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.</p>
+
+<p>Attempting to write the code for this has made me realise how much time I&#8217;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Devops Days]]></title>
     <link href="http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days/"/>
     <updated>2011-11-04T14:35:00-07:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days</id>
     <content type="html"><![CDATA[<p>I had the good fortune to attend <a href="http://devopsdays.org/events/2011-goteborg/">Devopsdays Goteborg</a> a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice <a href="http://www.jedi.be/">Patrick Debois</a> and the other organisers.</p>
 
-<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an open space to explore the problem entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
+<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
 
 <p><strong>&#8220;The business case for devops&#8221;</strong> (very faint on the board)</p>
 

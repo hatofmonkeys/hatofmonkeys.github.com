@@ -9,9 +9,10 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="Blog Archive 2011 Devops Days
+  <meta name="description" content="Blog Archive 2011 Automating Value
+Nov 06 2011 Devops Days
 Nov 04 2011 Blogging With Octopress
-Oct 25 2011 Recent Posts Devops Days Blogging With Octopress Latest Tweets Status &hellip;">
+Oct 25 2011 Recent Posts Automating Value Devops Days &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,6 +92,16 @@ Oct 25 2011 Recent Posts Devops Days Blogging With Octopress Latest Tweets Statu
 
 <article>
   
+<h1><a href="/blog/2011/11/06/automating-value/">Automating Value</a></h1>
+<time datetime="2011-11-06T13:26:00-08:00" pubdate><span class='month'>Nov</span> <span class='day'>06</span> <span class='year'>2011</span></time>
+
+
+</article>
+
+
+
+<article>
+  
 <h1><a href="/blog/2011/11/04/devops-days/">Devops Days</a></h1>
 <time datetime="2011-11-04T14:35:00-07:00" pubdate><span class='month'>Nov</span> <span class='day'>04</span> <span class='year'>2011</span></time>
 
@@ -121,6 +132,10 @@ Oct 25 2011 Recent Posts Devops Days Blogging With Octopress Latest Tweets Statu
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2011/11/06/automating-value/">Automating Value</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2011/11/04/devops-days/">Devops Days</a>
       </li>
     
@@ -129,6 +144,35 @@ Oct 25 2011 Recent Posts Devops Days Blogging With Octopress Latest Tweets Statu
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hatofmonkeys',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

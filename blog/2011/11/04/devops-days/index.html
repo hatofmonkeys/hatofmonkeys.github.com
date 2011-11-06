@@ -97,7 +97,7 @@
 
 <div class="entry-content"><p>I had the good fortune to attend <a href="http://devopsdays.org/events/2011-goteborg/">Devopsdays Goteborg</a> a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice <a href="http://www.jedi.be/">Patrick Debois</a> and the other organisers.</p>
 
-<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an open space to explore the problem entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
+<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
 
 <p><strong>&#8220;The business case for devops&#8221;</strong> (very faint on the board)</p>
 
@@ -151,6 +151,8 @@
         <a class="basic-alignment left" href="/blog/2011/10/25/blogging-with-octopress/" title="Previous Post: Blogging With Octopress">&laquo; Blogging With Octopress</a>
       
       
+        <a class="basic-alignment right" href="/blog/2011/11/06/automating-value/" title="next Post: Automating Value">Automating Value &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -170,6 +172,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2011/11/06/automating-value/">Automating Value</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2011/11/04/devops-days/">Devops Days</a>
       </li>
     
@@ -178,6 +184,35 @@
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'hatofmonkeys',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
