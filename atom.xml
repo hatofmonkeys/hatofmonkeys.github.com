@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2011-11-13T13:28:00-08:00</updated>
+  <updated>2011-11-20T14:16:54-08:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -100,6 +100,8 @@
 <p>And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.</p>
 
 <p>Attempting to write the code for this has made me realise how much time I&#8217;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
+
+<p><strong>UPDATE</strong> Cucumber-value has now been dragged kicking and screaming on to <a href="https://rubygems.org/gems/cucumber-value">Rubygems</a> and been inserted forcibly up those <a href="https://github.com/hatofmonkeys/cucumber-value">Githubs</a>.</p>
 ]]></content>
   </entry>
   
