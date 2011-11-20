@@ -49,3 +49,5 @@ Or this
 And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.
 
 Attempting to write the code for this has made me realise how much time I've wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the [Githubs](https://github.com/hatofmonkeys).
+
+**UPDATE** Cucumber-value has now been dragged kicking and screaming on to [Rubygems](https://rubygems.org/gems/cucumber-value) and been inserted forcibly up those [Githubs](https://github.com/hatofmonkeys/cucumber-value).
