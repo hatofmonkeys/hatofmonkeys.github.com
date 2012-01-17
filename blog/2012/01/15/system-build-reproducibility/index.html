@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Hatofmonkeys</title>
+  <title>System Build Reproducibility - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="Blog Archive 2012 System Build Reproducibility
-Jan 15 2012 Monitoring-Driven Operations
-Jan 15 2012 Bridging the Gap Between Functional and Non- &hellip;">
+  <meta name="description" content="I&#8217;ve been on the receiving end of build reproducibility rants from developers at plenty of conferences. Their bile is usually aimed at Maven&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Jan 15 2012 Bridging the Gap Between Functional and Non- &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/archives">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -75,105 +73,87 @@ Jan 15 2012 Bridging the Gap Between Functional and Non- &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">System Build Reproducibility</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2012-01-15T09:59:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>I&#8217;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&#8217;s snapshot functionality</a>. I&#8217;ve often questioned how reproducible their systems are; I&#8217;m usually met by a blank look.</p>
 
-  
-  <h2>2012</h2>
+<p>I&#8217;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments - or even in a single tier - due to scaling up/down.</p>
 
-<article>
-  
-<h1><a href="/blog/2012/01/15/system-build-reproducibility/">System Build Reproducibility</a></h1>
-<time datetime="2012-01-15T09:59:00-08:00" pubdate><span class='month'>Jan</span> <span class='day'>15</span> <span class='year'>2012</span></time>
+<p>As I&#8217;ve tended to use RPM-based systems (<a href="http://www.redhat.com/certification/rhca/">misspent youth</a>), I&#8217;ve attempted, wherever possible, to get all non-configuration files on a server into RPMs. I&#8217;ve been more promiscuous with configuration management, moving from home grown, to <a href="http://cfengine.com/">Cfengine</a>, via <a href="http://puppetlabs.com/">Puppet</a>, to <a href="http://www.opscode.com/chef/">Chef</a>. I&#8217;m currently using chef-solo, with tooling such as <a href="https://github.com/lusis/Noah">Noah</a> and <a href="http://puppetlabs.com/mcollective/">MCollective</a> for orchestration. Don&#8217;t even mention the number of deployment/ALM tooling solutions I&#8217;ve been through(although <a href="https://github.com/capistrano/capistrano/wiki">Capistrano</a> has never annoyed me to any great extent).</p>
 
+<p>Even with long term usage of RPMs, build reproducibility has been far from simple. <a href="http://www.redhat.com/red_hat_network/">RH Satellite</a>/<a href="http://spacewalk.redhat.com/">Spacewalk</a> should make this easy, but unfortunately it&#8217;s a bloated mess. I&#8217;ve usually resorted to simple apache/createrepo, but this poses its own problems. Do you have a repo per environment? How do you track which servers were built against which repo? How do you roll out updates in a manageable fashion?</p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/01/15/monitoring-driven-operations/">Monitoring-Driven Operations</a></h1>
-<time datetime="2012-01-15T08:11:00-08:00" pubdate><span class='month'>Jan</span> <span class='day'>15</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">Bridging the Gap Between Functional and Non-Functional</a></h1>
-<time datetime="2012-01-15T07:54:00-08:00" pubdate><span class='month'>Jan</span> <span class='day'>15</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/">Continuous Deployment - A Vanity Metric?</a></h1>
-<time datetime="2012-01-15T07:12:00-08:00" pubdate><span class='month'>Jan</span> <span class='day'>15</span> <span class='year'>2012</span></time>
-
-
-</article>
-
-
-
-  
-  <h2>2011</h2>
-
-<article>
-  
-<h1><a href="/blog/2011/11/13/the-testing-pipeline/">The Testing Pipeline</a></h1>
-<time datetime="2011-11-13T11:11:00-08:00" pubdate><span class='month'>Nov</span> <span class='day'>13</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/11/06/automating-value/">Automating Value</a></h1>
-<time datetime="2011-11-06T13:26:00-08:00" pubdate><span class='month'>Nov</span> <span class='day'>06</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/11/04/devops-days/">Devops Days</a></h1>
-<time datetime="2011-11-04T14:35:00-07:00" pubdate><span class='month'>Nov</span> <span class='day'>04</span> <span class='year'>2011</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2011/10/25/blogging-with-octopress/">Blogging With Octopress</a></h1>
-<time datetime="2011-10-25T23:21:00-07:00" pubdate><span class='month'>Oct</span> <span class='day'>25</span> <span class='year'>2011</span></time>
-
-
-</article>
-
+<p>I&#8217;ve created a simple setup called <a href="https://github.com/hatofmonkeys/yumtags">Yumtags!</a> to address some of these issues. The basic idea is that you can drop RPMs in to a directory, and then &#8220;freeze&#8221; the directory at that point in time by creating and storing repository metadata against a tag. This tag can then be used, perhaps in a chef-solo-driven repository definition, to update, build, and reproduce systems in a known state. It currently features simple JSON-driven integration for CI systems, so RPM-based integration pipelines can be easily automated. There&#8217;s a million and one things missing from it, but now it does the basic story I&#8217;ve shared it for others to hack on.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Colin Humphreys</span></span>
+
+      
+
+
+
+
+  
+
+<time datetime="2012-01-15T09:59:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/01/15/monitoring-driven-operations/" title="Previous Post: Monitoring-Driven Operations">&laquo; Monitoring-Driven Operations</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -281,7 +261,10 @@ Jan 15 2012 Bridging the Gap Between Functional and Non- &hellip;">
       var disqus_shortname = 'hatofmonkeysblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

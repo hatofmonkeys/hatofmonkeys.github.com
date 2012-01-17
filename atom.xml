@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2011-11-20T14:16:54-08:00</updated>
+  <updated>2012-01-17T14:32:39-08:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[System Build Reproducibility]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/"/>
+    <updated>2012-01-15T09:59:00-08:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&#8217;s snapshot functionality</a>. I&#8217;ve often questioned how reproducible their systems are; I&#8217;m usually met by a blank look.</p>
+
+<p>I&#8217;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments - or even in a single tier - due to scaling up/down.</p>
+
+<p>As I&#8217;ve tended to use RPM-based systems (<a href="http://www.redhat.com/certification/rhca/">misspent youth</a>), I&#8217;ve attempted, wherever possible, to get all non-configuration files on a server into RPMs. I&#8217;ve been more promiscuous with configuration management, moving from home grown, to <a href="http://cfengine.com/">Cfengine</a>, via <a href="http://puppetlabs.com/">Puppet</a>, to <a href="http://www.opscode.com/chef/">Chef</a>. I&#8217;m currently using chef-solo, with tooling such as <a href="https://github.com/lusis/Noah">Noah</a> and <a href="http://puppetlabs.com/mcollective/">MCollective</a> for orchestration. Don&#8217;t even mention the number of deployment/ALM tooling solutions I&#8217;ve been through(although <a href="https://github.com/capistrano/capistrano/wiki">Capistrano</a> has never annoyed me to any great extent).</p>
+
+<p>Even with long term usage of RPMs, build reproducibility has been far from simple. <a href="http://www.redhat.com/red_hat_network/">RH Satellite</a>/<a href="http://spacewalk.redhat.com/">Spacewalk</a> should make this easy, but unfortunately it&#8217;s a bloated mess. I&#8217;ve usually resorted to simple apache/createrepo, but this poses its own problems. Do you have a repo per environment? How do you track which servers were built against which repo? How do you roll out updates in a manageable fashion?</p>
+
+<p>I&#8217;ve created a simple setup called <a href="https://github.com/hatofmonkeys/yumtags">Yumtags!</a> to address some of these issues. The basic idea is that you can drop RPMs in to a directory, and then &#8220;freeze&#8221; the directory at that point in time by creating and storing repository metadata against a tag. This tag can then be used, perhaps in a chef-solo-driven repository definition, to update, build, and reproduce systems in a known state. It currently features simple JSON-driven integration for CI systems, so RPM-based integration pipelines can be easily automated. There&#8217;s a million and one things missing from it, but now it does the basic story I&#8217;ve shared it for others to hack on.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Monitoring-Driven Operations]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/"/>
+    <updated>2012-01-15T08:11:00-08:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations</id>
+    <content type="html"><![CDATA[<p><strong>RAMBLING BLOG POST ALERT</strong></p>
+
+<p>Monitoring sucks.</p>
+
+<p>Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
+
+<p>I&#8217;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&#8217;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
+
+<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&#8217;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
+
+<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&#8217;t alone</a> in thinking about monitoring from this perspective.</p>
+
+<p>Reusing the application behaviours in production is a natural, logical extension of <a href="blog/2011/11/13/the-testing-pipeline/">the testing pipeline</a>. Were we able to ensure that the <a href="blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">behaviours include non-functional requirements</a>, would it be possible to use these monitored behaviours to converge an environment towards a state that passes all scenarios?</p>
+
+<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&#8217;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
+
+<p><a href="https://github.com/cloudfoundry/">Cloud Foundry</a>(brilliant) uses a health manager, message bus, and cloud controller interacting to accomplish something similar. In this situation the cloud controller knows how to converge the state of the environment when the health manager observes a disparity between observed and desired states.</p>
+
+<p>I&#8217;m thinking about developing a system that works in the following way(&#8221;<em>The Escalator</em>&#8221;). Please get in contact if you&#8217;ve got any feedback.</p>
+
+<ul>
+<li>Barry McDevops declares an escalation pattern for his environments. These are the <em>levels</em> of escalation for convergence that failing checks can be matched to. As a crude example:
+
+<ol>
+<li>Create account with IaaS provider</li>
+<li>Create core networking and support infrastructure</li>
+<li>Create tier networking and all VMs</li>
+<li>Create an individual VM</li>
+<li>Converge VM with Chef</li>
+<li>(Re)deploy application</li>
+</ol>
+</li>
+<li>Barry creates a series of monitoring <em>checks</em> for the non-functional requirements
+
+<ol>
+<li>IaaS provider is online</li>
+<li>(per node) ICMP ping reply</li>
+<li>(per node) app and DB services are online</li>
+<li>(per tier) app and DB services are online</li>
+<li>Smoke check of application</li>
+</ol>
+</li>
+<li>Barry maps each monitoring <em>check</em> to an escalation <em>level</em>
+
+<ul>
+<li>Check 1 => Level 1</li>
+<li>Check 2 => Level 4</li>
+<li>Check 3 => Level 5</li>
+<li>Check 4 => Level 3</li>
+<li>Check 5 => Level 6</li>
+</ul>
+</li>
+<li>Once engaged, the monitoring system will quiesce for 30 seconds, observe the highest level of required escalation, and then ask the escalation system to take that level of action (and all levels below it).</li>
+</ul>
+
+
+<p>As examples:
+- If there is nothing in place (failed IaaS provider or a new system) - an entire new environment is built from scratch (escalation steps 1 through 6).
+- If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
+- If the application fails the smoke test, the application is redeployed (step 6).</p>
+
+<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&#8217;s no point attempting to deploy an application if you have no nodes.</p>
+
+<p>If an escalation process fails, the monitoring system could attempt a re-convergence if necessary or contact an administrator.</p>
+
+<p>This overlaps significantly with a couple of discussions: <a href="http://wiki.opscode.com/display/chef/Cluster+Orchestration">here</a> and <a href="http://wiki.opscode.com/display/chef/Management+of+External+Entitites">here</a> at the recent <a href="http://wiki.opscode.com/display/chef/Opscode+Community+Summit+1">Opscode Community Summit</a>, so perhaps someone else is already creating something similar with Chef.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bridging the Gap Between Functional and Non-Functional]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/"/>
+    <updated>2012-01-15T07:54:00-08:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional</id>
+    <content type="html"><![CDATA[<p>According to the <a href="http://agilemanifesto.org/principles.html">principles behind the Agile Manifesto</a></p>
+
+<blockquote><p>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</p></blockquote>
+
+<p>As I&#8217;m from an <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">operations</a> background, I&#8217;ve always had great trouble communicating with the customer over requirements that have been relevant to my domain. The usual situation is that the &#8220;customer&#8221;, often the product owner, views the working i.e. functionally complete software on a developer&#8217;s machine, but bringing this to an operational service level is an afterthought (until it goes offline, and the real customers start complaining).</p>
+
+<p>Traditionally, capturing these specifications has fallen under the umbrella of &#8220;non-functional requirements&#8221;. As <a href="https://twitter.com/tomsulston">Tom Sulston</a> pointed out to me, this suggests requirements that <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">aren&#8217;t working</a>, which is precisely the opposite of what we&#8217;re attempting to express.</p>
+
+<p>I&#8217;ve sought to tackle this in a couple of ways.</p>
+
+<ol>
+<li><p>Spread FUD throughout the non-technical customer base.</p>
+
+<ul>
+<li>&#8220;Do you want it to explode?&#8221;</li>
+<li>&#8220;NO!&#8221;</li>
+<li>&#8220;Well you should ask for non-exploding software in your stories then!&#8221;.</li>
+</ul>
+</li>
+<li><p>Get the team in a room together and express &#8220;cross-cutting concerns&#8221; (I <a href="http://www.cockneyrhymingslang.co.uk/slang/half_inch">half-inched</a> the idea from <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>) that span the project as a whole.</p></li>
+</ol>
+
+
+<p>I haven&#8217;t been happy with the results of either approach, so I&#8217;d be interested to talk to anyone with a satisfactory solution in this space.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Continuous Deployment - A Vanity Metric?]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/"/>
+    <updated>2012-01-15T07:12:00-08:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve recently seen a few articles/presentations carrying the claim &#8220;481,000 deployments a day!&#8221;, &#8220;Deployment every 3 seconds!&#8221;, or &#8220;We deploy more frequently than we breathe - or we sack the junior ops guy!&#8221;. Very exciting.</p>
+
+<p>Having the capability to deploy frequently is important for a variety of reasons; fast feedback, quickly realising value, reducing risk deltas, increasing confidence, and so on. However, I also think that frequent deployment is useless without making use of that feedback.</p>
+
+<p>Continuous Deployment is an enabler of fast feedback, but it&#8217;s not the end goal. If the feedback isn&#8217;t utilised by product owners to inform their decisions, there&#8217;s little point in creating it. The practice becomes a local optimisation.</p>
+
+<p>I&#8217;ve deliberately chosen to differentiate Continuous Delivery from Continuous Deployment here, as I believe Continuous Delivery implies that <a href="blog/2011/11/06/automating-value/">value</a> is being delivered, whereas Continuous Deployment suggests focusing on deploying frequently.</p>
+
+<p>We need to optimise cycle time for the whole business, not just the dev/ops/devops/&lt;current silo label> team.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Testing Pipeline]]></title>

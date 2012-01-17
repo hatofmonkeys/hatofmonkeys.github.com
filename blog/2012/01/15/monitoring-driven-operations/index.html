@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The Testing Pipeline - Hatofmonkeys</title>
+  <title>Monitoring-Driven Operations - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I was fortunate in being able to attend Citcon this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely &hellip;">
+  <meta name="description" content="RAMBLING BLOG POST ALERT Monitoring sucks. Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">The Testing Pipeline</h1>
+      <h1 class="entry-title">Monitoring-Driven Operations</h1>
     
     
       <p class="meta">
@@ -88,40 +88,79 @@
 
   
 
-<time datetime="2011-11-13T11:11:00-08:00" pubdate>Nov 13<span>th</span>, 2011</time>
+<time datetime="2012-01-15T08:11:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
+<div class="entry-content"><p><strong>RAMBLING BLOG POST ALERT</strong></p>
 
-<p>I&#8217;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
+<p>Monitoring sucks.</p>
 
-<p>I think we should reconsider the deployment pipeline as a testing pipeline. The purpose of the pipeline is to increase confidence in the release candidate as the stages are passed. These stages can be considered as hoops for the release candidates to jump through. As new functionality is added, so the hoops will need to be tailored to ensure the new functionality is fit for purpose.</p>
+<p>Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
 
-<p>Here&#8217;s an idea of a delivery pipeline I&#8217;ve seen used many times before. It&#8217;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
+<p>I&#8217;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&#8217;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
 
-<p>Behaviours(product owner) -> unit(dev) -> <strong>code</strong>(dev) -> VCS -> unit tests(CI) -> behavioural tests(UAT) -> load tests(staging) -> security tests(staging) -> monitoring(production)</p>
+<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&#8217;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
 
-<p>The issue I&#8217;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
+<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&#8217;t alone</a> in thinking about monitoring from this perspective.</p>
 
-<p>I&#8217;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&#8217;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&#8217;ve yet to look at how to tackle security requirements. Please get in contact with me if you&#8217;ve had any success reusing your business logic assertions throughout your pipeline; I&#8217;d be very interested to hear about your experiences.</p>
+<p>Reusing the application behaviours in production is a natural, logical extension of <a href="blog/2011/11/13/the-testing-pipeline/">the testing pipeline</a>. Were we able to ensure that the <a href="blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">behaviours include non-functional requirements</a>, would it be possible to use these monitored behaviours to converge an environment towards a state that passes all scenarios?</p>
 
-<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&#8217;s ability to degrade gracefully through various failure modes, and anything else that&#8217;s required to establish confidence in the release candidate.</p>
+<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&#8217;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
 
-<p>You should be able to make an API call to cloud-based testing providers(such as <a href="http://www.soasta.com/">Soasta</a>) so they can use your artefact to automatically test the behaviour of your application, such as external load and security tests. The feedback from these providers can be returned to your CI server for tracking over time, and form a basis for diagnosis of any assertion failures.</p>
+<p><a href="https://github.com/cloudfoundry/">Cloud Foundry</a>(brilliant) uses a health manager, message bus, and cloud controller interacting to accomplish something similar. In this situation the cloud controller knows how to converge the state of the environment when the health manager observes a disparity between observed and desired states.</p>
 
-<p>Without a fully-automated testing pipeline, I see one of two outcomes regularly at the moment:</p>
+<p>I&#8217;m thinking about developing a system that works in the following way(&#8221;<em>The Escalator</em>&#8221;). Please get in contact if you&#8217;ve got any feedback.</p>
 
 <ul>
-<li>New functionality is not tested before release. This implies risk.</li>
-<li>Releases are delayed while scripts are updated, and manual load/security tests booked with vendors and executed. This inhibits business agility and delays feedback cycles.</li>
+<li>Barry McDevops declares an escalation pattern for his environments. These are the <em>levels</em> of escalation for convergence that failing checks can be matched to. As a crude example:
+
+<ol>
+<li>Create account with IaaS provider</li>
+<li>Create core networking and support infrastructure</li>
+<li>Create tier networking and all VMs</li>
+<li>Create an individual VM</li>
+<li>Converge VM with Chef</li>
+<li>(Re)deploy application</li>
+</ol>
+</li>
+<li>Barry creates a series of monitoring <em>checks</em> for the non-functional requirements
+
+<ol>
+<li>IaaS provider is online</li>
+<li>(per node) ICMP ping reply</li>
+<li>(per node) app and DB services are online</li>
+<li>(per tier) app and DB services are online</li>
+<li>Smoke check of application</li>
+</ol>
+</li>
+<li>Barry maps each monitoring <em>check</em> to an escalation <em>level</em>
+
+<ul>
+<li>Check 1 => Level 1</li>
+<li>Check 2 => Level 4</li>
+<li>Check 3 => Level 5</li>
+<li>Check 4 => Level 3</li>
+<li>Check 5 => Level 6</li>
+</ul>
+</li>
+<li>Once engaged, the monitoring system will quiesce for 30 seconds, observe the highest level of required escalation, and then ask the escalation system to take that level of action (and all levels below it).</li>
 </ul>
 
 
-<p>I&#8217;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&#8217;re interested in helping please get in touch. I&#8217;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&#8217;ve got something small working.</p>
+<p>As examples:
+- If there is nothing in place (failed IaaS provider or a new system) - an entire new environment is built from scratch (escalation steps 1 through 6).
+- If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
+- If the application fails the smoke test, the application is redeployed (step 6).</p>
+
+<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&#8217;s no point attempting to deploy an application if you have no nodes.</p>
+
+<p>If an escalation process fails, the monitoring system could attempt a re-convergence if necessary or contact an administrator.</p>
+
+<p>This overlaps significantly with a couple of discussions: <a href="http://wiki.opscode.com/display/chef/Cluster+Orchestration">here</a> and <a href="http://wiki.opscode.com/display/chef/Management+of+External+Entitites">here</a> at the recent <a href="http://wiki.opscode.com/display/chef/Opscode+Community+Summit+1">Opscode Community Summit</a>, so perhaps someone else is already creating something similar with Chef.</p>
 </div>
 
 
@@ -139,7 +178,7 @@
 
   
 
-<time datetime="2011-11-13T11:11:00-08:00" pubdate>Nov 13<span>th</span>, 2011</time>
+<time datetime="2012-01-15T08:11:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
       
 
 
@@ -147,7 +186,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -160,10 +199,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/11/06/automating-value/" title="Previous Post: Automating Value">&laquo; Automating Value</a>
+        <a class="basic-alignment left" href="/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" title="Previous Post: Bridging the Gap Between Functional and Non-Functional">&laquo; Bridging the Gap Between Functional and Non-Functional</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/" title="next Post: Continuous Deployment - A Vanity Metric?">Continuous Deployment - A Vanity Metric? &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/01/15/system-build-reproducibility/" title="next Post: System Build Reproducibility">System Build Reproducibility &raquo;</a>
       
     </p>
   </footer>
@@ -282,8 +321,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations';
         var disqus_script = 'embed.js';
       
     (function () {
