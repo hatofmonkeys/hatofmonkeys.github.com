@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The Testing Pipeline - Hatofmonkeys</title>
+  <title>When to Pass on a PaaS - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I was fortunate in being able to attend Citcon this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely &hellip;">
+  <meta name="description" content="There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -77,7 +77,7 @@
   
   <header>
     
-      <h1 class="entry-title">The Testing Pipeline</h1>
+      <h1 class="entry-title">When to Pass on a PaaS</h1>
     
     
       <p class="meta">
@@ -88,40 +88,48 @@
 
   
 
-<time datetime="2011-11-13T11:11:00-08:00" pubdate>Nov 13<span>th</span>, 2011</time>
+<time datetime="2013-06-30T18:04:00-07:00" pubdate>Jun 30<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
+<div class="entry-content"><p>There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&#8217;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
 
-<p>I&#8217;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
+<h3>Cloud Foundry</h3>
 
-<p>I think we should reconsider the deployment pipeline as a testing pipeline. The purpose of the pipeline is to increase confidence in the release candidate as the stages are passed. These stages can be considered as hoops for the release candidates to jump through. As new functionality is added, so the hoops will need to be tailored to ensure the new functionality is fit for purpose.</p>
+<p>Having played with Heroku, and being dismayed at not being able to play with my own Heroku, I was overjoyed when VMWare released Cloud Foundry. I created a Vagrant box on the Cloud Foundry release day and began distributing it to clients. I worked with one of my clients at the time, OpenCredo, to develop and deploy one of their new services to a Cloud Foundry installation I created. I believe this was the first SLA-led production deployment of Cloud Foundry globally.</p>
 
-<p>Here&#8217;s an idea of a delivery pipeline I&#8217;ve seen used many times before. It&#8217;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
+<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&#8217;d fulfilled using PaaS, including OpenCredo&#8217;s.</p>
 
-<p>Behaviours(product owner) -> unit(dev) -> <strong>code</strong>(dev) -> VCS -> unit tests(CI) -> behavioural tests(UAT) -> load tests(staging) -> security tests(staging) -> monitoring(production)</p>
+<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 - Lessons Learned Deploying PaaS</a></p>
 
-<p>The issue I&#8217;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
+<h3>OpenShift</h3>
 
-<p>I&#8217;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&#8217;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&#8217;ve yet to look at how to tackle security requirements. Please get in contact with me if you&#8217;ve had any success reusing your business logic assertions throughout your pipeline; I&#8217;d be very interested to hear about your experiences.</p>
+<p>I was similarly happy when I heard RedHat had bought Makara, a product I&#8217;d briefly experimented with, and were looking at producing their own PaaS. I&#8217;ve used RedHat-based systems for many years with great success, have always found <a href="/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
 
-<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&#8217;s ability to degrade gracefully through various failure modes, and anything else that&#8217;s required to establish confidence in the release candidate.</p>
+<p>I was scoping a large project at this time with availability as a prime concern. It occurred to me that I could use two turnkey PaaSes simultaneously, Cloud Foundry and OpenShift, such that if there was an issue with either I could simply direct all traffic to the other PaaS. I discussed the deployment and progress at DevopsDays.</p>
 
-<p>You should be able to make an API call to cloud-based testing providers(such as <a href="http://www.soasta.com/">Soasta</a>) so they can use your artefact to automatically test the behaviour of your application, such as external load and security tests. The feedback from these providers can be returned to your CI server for tracking over time, and form a basis for diagnosis of any assertion failures.</p>
+<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 - How I Learned to Stop Worrying and Love the PaaS</a> - I start about 32 minutes in.</p>
 
-<p>Without a fully-automated testing pipeline, I see one of two outcomes regularly at the moment:</p>
+<h3>From Dream to Reality</h3>
 
-<ul>
-<li>New functionality is not tested before release. This implies risk.</li>
-<li>Releases are delayed while scripts are updated, and manual load/security tests booked with vendors and executed. This inhibits business agility and delays feedback cycles.</li>
-</ul>
+<p>Unfortunately, the project didn&#8217;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell - Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
 
+<p>Beyond this I feel OpenShift, like many &#8216;PaaSish&#8217; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
 
-<p>I&#8217;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&#8217;re interested in helping please get in touch. I&#8217;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&#8217;ve got something small working.</p>
+<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&#8217;s blog.</p>
+
+<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post - UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
+
+<h3>Which PaaS?</h3>
+
+<p>I&#8217;ve remained supportive of RedHat&#8217;s efforts to deliver a PaaS solution but fear they&#8217;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&#8217;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
+
+<p>Perhaps Redhat&#8217;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
+
+<p>Cloud Foundry isn&#8217;t perfect but, at the moment, is the only PaaS product I&#8217;d recommend to anyone looking to make a long-term investment.</p>
 </div>
 
 
@@ -139,7 +147,7 @@
 
   
 
-<time datetime="2011-11-13T11:11:00-08:00" pubdate>Nov 13<span>th</span>, 2011</time>
+<time datetime="2013-06-30T18:04:00-07:00" pubdate>Jun 30<span>th</span>, 2013</time>
       
 
 
@@ -147,7 +155,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -160,10 +168,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/11/06/automating-value/" title="Previous Post: Automating Value">&laquo; Automating Value</a>
+        <a class="basic-alignment left" href="/blog/2012/01/15/system-build-reproducibility/" title="Previous Post: System Build Reproducibility">&laquo; System Build Reproducibility</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/" title="next Post: Continuous Deployment - A Vanity Metric?">Continuous Deployment - A Vanity Metric? &raquo;</a>
       
     </p>
   </footer>
@@ -282,8 +288,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas';
         var disqus_script = 'embed.js';
       
     (function () {

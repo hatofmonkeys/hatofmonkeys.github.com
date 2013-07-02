@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I&#8217;ve been on the receiving end of build reproducibility rants from developers at plenty of conferences. Their bile is usually aimed at Maven&# &hellip;">
+  <meta name="description" content="There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -49,7 +49,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Hatofmonkeys</a></h1>
   
-    <h2>Really.</h2>
+    <h2>Thoughts no one would pay me to write</h2>
   
 </hgroup>
 
@@ -74,6 +74,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/30/when-to-pass-on-a-paas/">When to Pass on a PaaS</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+  
+
+<time datetime="2013-06-30T18:04:00-07:00" pubdate>Jun 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&#8217;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
+
+<h3>Cloud Foundry</h3>
+
+<p>Having played with Heroku, and being dismayed at not being able to play with my own Heroku, I was overjoyed when VMWare released Cloud Foundry. I created a Vagrant box on the Cloud Foundry release day and began distributing it to clients. I worked with one of my clients at the time, OpenCredo, to develop and deploy one of their new services to a Cloud Foundry installation I created. I believe this was the first SLA-led production deployment of Cloud Foundry globally.</p>
+
+<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&#8217;d fulfilled using PaaS, including OpenCredo&#8217;s.</p>
+
+<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 - Lessons Learned Deploying PaaS</a></p>
+
+<h3>OpenShift</h3>
+
+<p>I was similarly happy when I heard RedHat had bought Makara, a product I&#8217;d briefly experimented with, and were looking at producing their own PaaS. I&#8217;ve used RedHat-based systems for many years with great success, have always found <a href="/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
+
+<p>I was scoping a large project at this time with availability as a prime concern. It occurred to me that I could use two turnkey PaaSes simultaneously, Cloud Foundry and OpenShift, such that if there was an issue with either I could simply direct all traffic to the other PaaS. I discussed the deployment and progress at DevopsDays.</p>
+
+<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 - How I Learned to Stop Worrying and Love the PaaS</a> - I start about 32 minutes in.</p>
+
+<h3>From Dream to Reality</h3>
+
+<p>Unfortunately, the project didn&#8217;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell - Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
+
+<p>Beyond this I feel OpenShift, like many &#8216;PaaSish&#8217; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
+
+<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&#8217;s blog.</p>
+
+<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post - UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
+
+<h3>Which PaaS?</h3>
+
+<p>I&#8217;ve remained supportive of RedHat&#8217;s efforts to deliver a PaaS solution but fear they&#8217;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&#8217;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
+
+<p>Perhaps Redhat&#8217;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
+
+<p>Cloud Foundry isn&#8217;t perfect but, at the moment, is the only PaaS product I&#8217;d recommend to anyone looking to make a long-term investment.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -269,7 +334,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/">Continuous Deployment - a Vanity Metric?</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/">Continuous Deployment - A Vanity Metric?</a></h1>
     
     
       <p class="meta">
@@ -528,6 +593,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/30/when-to-pass-on-a-paas/">When to Pass on a PaaS</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/01/15/system-build-reproducibility/">System Build Reproducibility</a>
       </li>
     
@@ -541,10 +610,6 @@
     
       <li class="post">
         <a href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/">Continuous Deployment - A Vanity Metric?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/11/13/the-testing-pipeline/">The Testing Pipeline</a>
       </li>
     
   </ul>
@@ -613,7 +678,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2012 - Colin Humphreys -
+  Copyright &copy; 2013 - Colin Humphreys -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
