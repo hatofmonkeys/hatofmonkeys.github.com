@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I&#8217;ve recently seen a few articles/presentations carrying the claim &#8220;481,000 deployments a day!&#8221;, &#8220;Deployment every 3 seconds &hellip;">
+  <meta name="description" content="I&rsquo;ve recently seen a few articles/presentations carrying the claim &ldquo;481,000 deployments a day!&rdquo;, &ldquo;Deployment every 3 seconds &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,10 +21,11 @@
   <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -58,12 +59,14 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:blog.hatofmonkeys.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
@@ -86,22 +89,27 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T07:12:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T07:12:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I&#8217;ve recently seen a few articles/presentations carrying the claim &#8220;481,000 deployments a day!&#8221;, &#8220;Deployment every 3 seconds!&#8221;, or &#8220;We deploy more frequently than we breathe - or we sack the junior ops guy!&#8221;. Very exciting.</p>
+<div class="entry-content"><p>I&rsquo;ve recently seen a few articles/presentations carrying the claim &ldquo;481,000 deployments a day!&rdquo;, &ldquo;Deployment every 3 seconds!&rdquo;, or &ldquo;We deploy more frequently than we breathe &ndash; or we sack the junior ops guy!&rdquo;. Very exciting.</p>
 
 <p>Having the capability to deploy frequently is important for a variety of reasons; fast feedback, quickly realising value, reducing risk deltas, increasing confidence, and so on. However, I also think that frequent deployment is useless without making use of that feedback.</p>
 
-<p>Continuous Deployment is an enabler of fast feedback, but it&#8217;s not the end goal. If the feedback isn&#8217;t utilised by product owners to inform their decisions, there&#8217;s little point in creating it. The practice becomes a local optimisation.</p>
+<p>Continuous Deployment is an enabler of fast feedback, but it&rsquo;s not the end goal. If the feedback isn&rsquo;t utilised by product owners to inform their decisions, there&rsquo;s little point in creating it. The practice becomes a local optimisation.</p>
 
-<p>I&#8217;ve deliberately chosen to differentiate Continuous Delivery from Continuous Deployment here, as I believe Continuous Delivery implies that <a href="blog/2011/11/06/automating-value/">value</a> is being delivered, whereas Continuous Deployment suggests focusing on deploying frequently.</p>
+<p>I&rsquo;ve deliberately chosen to differentiate Continuous Delivery from Continuous Deployment here, as I believe Continuous Delivery implies that <a href="blog/2011/11/06/automating-value/">value</a> is being delivered, whereas Continuous Deployment suggests focusing on deploying frequently.</p>
 
 <p>We need to optimise cycle time for the whole business, not just the dev/ops/devops/&lt;current silo label> team.</p>
 </div>
@@ -119,17 +127,20 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T07:12:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T07:12:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -145,7 +156,7 @@
         <a class="basic-alignment left" href="/blog/2011/11/13/the-testing-pipeline/" title="Previous Post: The Testing Pipeline">&laquo; The Testing Pipeline</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" title="next Post: Bridging the Gap Between Functional and Non-Functional">Bridging the Gap Between Functional and Non-Functional &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" title="Next Post: Bridging the Gap Between Functional and Non-Functional">Bridging the Gap Between Functional and Non-Functional &raquo;</a>
       
     </p>
   </footer>
@@ -189,15 +200,15 @@
 </section>
 
 <section>
-  <h1>Github Repos</h1>
+  <h1>GitHub Repos</h1>
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
   
-  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -219,23 +230,6 @@
 
 
 <section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("hatofmonkeys", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/hatofmonkeys" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @hatofmonkeys</a>
-  
-</section>
-
-
-<section>
   <h1>On Delicious</h1>
   <div id="delicious"></div>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/hatofmonkeys?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
@@ -244,6 +238,11 @@
 
 
 
+<section>
+  <h1>Twitter</h1>
+  <a class="twitter-timeline" href="https://twitter.com/hatofmonkeys" data-widget-id="351933447830396928">Tweets by @hatofmonkeys</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
 
   
 </aside>
@@ -264,8 +263,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -281,7 +280,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -297,16 +296,6 @@
   </script>
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

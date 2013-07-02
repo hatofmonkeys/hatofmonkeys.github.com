@@ -21,10 +21,11 @@
   <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -58,12 +59,14 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:blog.hatofmonkeys.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
@@ -86,9 +89,14 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T07:54:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T07:54:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
       </p>
     
@@ -99,26 +107,26 @@
 
 <blockquote><p>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</p></blockquote>
 
-<p>As I&#8217;m from an <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">operations</a> background, I&#8217;ve always had great trouble communicating with the customer over requirements that have been relevant to my domain. The usual situation is that the &#8220;customer&#8221;, often the product owner, views the working i.e. functionally complete software on a developer&#8217;s machine, but bringing this to an operational service level is an afterthought (until it goes offline, and the real customers start complaining).</p>
+<p>As I&rsquo;m from an <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">operations</a> background, I&rsquo;ve always had great trouble communicating with the customer over requirements that have been relevant to my domain. The usual situation is that the &ldquo;customer&rdquo;, often the product owner, views the working i.e. functionally complete software on a developer&rsquo;s machine, but bringing this to an operational service level is an afterthought (until it goes offline, and the real customers start complaining).</p>
 
-<p>Traditionally, capturing these specifications has fallen under the umbrella of &#8220;non-functional requirements&#8221;. As <a href="https://twitter.com/tomsulston">Tom Sulston</a> pointed out to me, this suggests requirements that <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">aren&#8217;t working</a>, which is precisely the opposite of what we&#8217;re attempting to express.</p>
+<p>Traditionally, capturing these specifications has fallen under the umbrella of &ldquo;non-functional requirements&rdquo;. As <a href="https://twitter.com/tomsulston">Tom Sulston</a> pointed out to me, this suggests requirements that <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">aren&rsquo;t working</a>, which is precisely the opposite of what we&rsquo;re attempting to express.</p>
 
-<p>I&#8217;ve sought to tackle this in a couple of ways.</p>
+<p>I&rsquo;ve sought to tackle this in a couple of ways.</p>
 
 <ol>
 <li><p>Spread FUD throughout the non-technical customer base.</p>
 
 <ul>
-<li>&#8220;Do you want it to explode?&#8221;</li>
-<li>&#8220;NO!&#8221;</li>
-<li>&#8220;Well you should ask for non-exploding software in your stories then!&#8221;.</li>
+<li>&ldquo;Do you want it to explode?&rdquo;</li>
+<li>&ldquo;NO!&rdquo;</li>
+<li>&ldquo;Well you should ask for non-exploding software in your stories then!&rdquo;.</li>
 </ul>
 </li>
-<li><p>Get the team in a room together and express &#8220;cross-cutting concerns&#8221; (I <a href="http://www.cockneyrhymingslang.co.uk/slang/half_inch">half-inched</a> the idea from <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>) that span the project as a whole.</p></li>
+<li><p>Get the team in a room together and express &ldquo;cross-cutting concerns&rdquo; (I <a href="http://www.cockneyrhymingslang.co.uk/slang/half_inch">half-inched</a> the idea from <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>) that span the project as a whole.</p></li>
 </ol>
 
 
-<p>I haven&#8217;t been happy with the results of either approach, so I&#8217;d be interested to talk to anyone with a satisfactory solution in this space.</p>
+<p>I haven&rsquo;t been happy with the results of either approach, so I&rsquo;d be interested to talk to anyone with a satisfactory solution in this space.</p>
 </div>
 
 
@@ -134,17 +142,20 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T07:54:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T07:54:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -160,7 +171,7 @@
         <a class="basic-alignment left" href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/" title="Previous Post: Continuous Deployment - A Vanity Metric?">&laquo; Continuous Deployment - A Vanity Metric?</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/01/15/monitoring-driven-operations/" title="next Post: Monitoring-Driven Operations">Monitoring-Driven Operations &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/01/15/monitoring-driven-operations/" title="Next Post: Monitoring-Driven Operations">Monitoring-Driven Operations &raquo;</a>
       
     </p>
   </footer>
@@ -204,15 +215,15 @@
 </section>
 
 <section>
-  <h1>Github Repos</h1>
+  <h1>GitHub Repos</h1>
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
   
-  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -234,23 +245,6 @@
 
 
 <section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("hatofmonkeys", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/hatofmonkeys" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @hatofmonkeys</a>
-  
-</section>
-
-
-<section>
   <h1>On Delicious</h1>
   <div id="delicious"></div>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/hatofmonkeys?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
@@ -259,6 +253,11 @@
 
 
 
+<section>
+  <h1>Twitter</h1>
+  <a class="twitter-timeline" href="https://twitter.com/hatofmonkeys" data-widget-id="351933447830396928">Tweets by @hatofmonkeys</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
 
   
 </aside>
@@ -279,8 +278,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -296,7 +295,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -312,16 +311,6 @@
   </script>
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

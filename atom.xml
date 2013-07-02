@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2013-07-01T18:44:39-07:00</updated>
+  <updated>2013-07-01T22:28:35-07:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -18,41 +18,41 @@
     <link href="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/"/>
     <updated>2013-06-30T18:04:00-07:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas</id>
-    <content type="html"><![CDATA[<p>There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&#8217;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
+    <content type="html"><![CDATA[<p>There&rsquo;s no point pretending I don&rsquo;t love &lsquo;The PaaS&rsquo;. I do. I have spent too much of my career fighting battles I shouldn&rsquo;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
 
 <h3>Cloud Foundry</h3>
 
 <p>Having played with Heroku, and being dismayed at not being able to play with my own Heroku, I was overjoyed when VMWare released Cloud Foundry. I created a Vagrant box on the Cloud Foundry release day and began distributing it to clients. I worked with one of my clients at the time, OpenCredo, to develop and deploy one of their new services to a Cloud Foundry installation I created. I believe this was the first SLA-led production deployment of Cloud Foundry globally.</p>
 
-<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&#8217;d fulfilled using PaaS, including OpenCredo&#8217;s.</p>
+<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&rsquo;d fulfilled using PaaS, including OpenCredo&rsquo;s.</p>
 
-<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 - Lessons Learned Deploying PaaS</a></p>
+<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 &ndash; Lessons Learned Deploying PaaS</a></p>
 
 <h3>OpenShift</h3>
 
-<p>I was similarly happy when I heard RedHat had bought Makara, a product I&#8217;d briefly experimented with, and were looking at producing their own PaaS. I&#8217;ve used RedHat-based systems for many years with great success, have always found <a href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
+<p>I was similarly happy when I heard RedHat had bought Makara, a product I&rsquo;d briefly experimented with, and were looking at producing their own PaaS. I&rsquo;ve used RedHat-based systems for many years with great success, have always found <a href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
 
 <p>I was scoping a large project at this time with availability as a prime concern. It occurred to me that I could use two turnkey PaaSes simultaneously, Cloud Foundry and OpenShift, such that if there was an issue with either I could simply direct all traffic to the other PaaS. I discussed the deployment and progress at DevopsDays.</p>
 
-<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 - How I Learned to Stop Worrying and Love the PaaS</a> - I start about 32 minutes in.</p>
+<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 &ndash; How I Learned to Stop Worrying and Love the PaaS</a> &ndash; I start about 32 minutes in.</p>
 
 <h3>From Dream to Reality</h3>
 
-<p>Unfortunately, the project didn&#8217;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell - Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
+<p>Unfortunately, the project didn&rsquo;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell &ndash; Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
 
-<p>Beyond this I feel OpenShift, like many &#8216;PaaSish&#8217; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
+<p>Beyond this I feel OpenShift, like many &lsquo;PaaSish&rsquo; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
 
-<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&#8217;s blog.</p>
+<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&rsquo;s blog.</p>
 
-<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post - UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
+<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post &ndash; UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
 
 <h3>Which PaaS?</h3>
 
-<p>I&#8217;ve remained supportive of RedHat&#8217;s efforts to deliver a PaaS solution but fear they&#8217;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&#8217;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
+<p>I&rsquo;ve remained supportive of RedHat&rsquo;s efforts to deliver a PaaS solution but fear they&rsquo;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&rsquo;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
 
-<p>Perhaps Redhat&#8217;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
+<p>Perhaps Redhat&rsquo;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
 
-<p>Cloud Foundry isn&#8217;t perfect but, at the moment, is the only PaaS product I&#8217;d recommend to anyone looking to make a long-term investment.</p>
+<p>Cloud Foundry isn&rsquo;t perfect but, at the moment, is the only PaaS product I&rsquo;d recommend to anyone looking to make a long-term investment.</p>
 ]]></content>
   </entry>
   
@@ -61,15 +61,15 @@
     <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/"/>
     <updated>2012-01-15T09:59:00-08:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&#8217;s snapshot functionality</a>. I&#8217;ve often questioned how reproducible their systems are; I&#8217;m usually met by a blank look.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&rsquo;s snapshot functionality</a>. I&rsquo;ve often questioned how reproducible their systems are; I&rsquo;m usually met by a blank look.</p>
 
-<p>I&#8217;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments - or even in a single tier - due to scaling up/down.</p>
+<p>I&rsquo;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments &ndash; or even in a single tier &ndash; due to scaling up/down.</p>
 
-<p>As I&#8217;ve tended to use RPM-based systems (<a href="http://www.redhat.com/certification/rhca/">misspent youth</a>), I&#8217;ve attempted, wherever possible, to get all non-configuration files on a server into RPMs. I&#8217;ve been more promiscuous with configuration management, moving from home grown, to <a href="http://cfengine.com/">Cfengine</a>, via <a href="http://puppetlabs.com/">Puppet</a>, to <a href="http://www.opscode.com/chef/">Chef</a>. I&#8217;m currently using chef-solo, with tooling such as <a href="https://github.com/lusis/Noah">Noah</a> and <a href="http://puppetlabs.com/mcollective/">MCollective</a> for orchestration. Don&#8217;t even mention the number of deployment/ALM tooling solutions I&#8217;ve been through(although <a href="https://github.com/capistrano/capistrano/wiki">Capistrano</a> has never annoyed me to any great extent).</p>
+<p>As I&rsquo;ve tended to use RPM-based systems (<a href="http://www.redhat.com/certification/rhca/">misspent youth</a>), I&rsquo;ve attempted, wherever possible, to get all non-configuration files on a server into RPMs. I&rsquo;ve been more promiscuous with configuration management, moving from home grown, to <a href="http://cfengine.com/">Cfengine</a>, via <a href="http://puppetlabs.com/">Puppet</a>, to <a href="http://www.opscode.com/chef/">Chef</a>. I&rsquo;m currently using chef-solo, with tooling such as <a href="https://github.com/lusis/Noah">Noah</a> and <a href="http://puppetlabs.com/mcollective/">MCollective</a> for orchestration. Don&rsquo;t even mention the number of deployment/ALM tooling solutions I&rsquo;ve been through(although <a href="https://github.com/capistrano/capistrano/wiki">Capistrano</a> has never annoyed me to any great extent).</p>
 
-<p>Even with long term usage of RPMs, build reproducibility has been far from simple. <a href="http://www.redhat.com/red_hat_network/">RH Satellite</a>/<a href="http://spacewalk.redhat.com/">Spacewalk</a> should make this easy, but unfortunately it&#8217;s a bloated mess. I&#8217;ve usually resorted to simple apache/createrepo, but this poses its own problems. Do you have a repo per environment? How do you track which servers were built against which repo? How do you roll out updates in a manageable fashion?</p>
+<p>Even with long term usage of RPMs, build reproducibility has been far from simple. <a href="http://www.redhat.com/red_hat_network/">RH Satellite</a>/<a href="http://spacewalk.redhat.com/">Spacewalk</a> should make this easy, but unfortunately it&rsquo;s a bloated mess. I&rsquo;ve usually resorted to simple apache/createrepo, but this poses its own problems. Do you have a repo per environment? How do you track which servers were built against which repo? How do you roll out updates in a manageable fashion?</p>
 
-<p>I&#8217;ve created a simple setup called <a href="https://github.com/hatofmonkeys/yumtags">Yumtags!</a> to address some of these issues. The basic idea is that you can drop RPMs in to a directory, and then &#8220;freeze&#8221; the directory at that point in time by creating and storing repository metadata against a tag. This tag can then be used, perhaps in a chef-solo-driven repository definition, to update, build, and reproduce systems in a known state. It currently features simple JSON-driven integration for CI systems, so RPM-based integration pipelines can be easily automated. There&#8217;s a million and one things missing from it, but now it does the basic story I&#8217;ve shared it for others to hack on.</p>
+<p>I&rsquo;ve created a simple setup called <a href="https://github.com/hatofmonkeys/yumtags">Yumtags!</a> to address some of these issues. The basic idea is that you can drop RPMs in to a directory, and then &ldquo;freeze&rdquo; the directory at that point in time by creating and storing repository metadata against a tag. This tag can then be used, perhaps in a chef-solo-driven repository definition, to update, build, and reproduce systems in a known state. It currently features simple JSON-driven integration for CI systems, so RPM-based integration pipelines can be easily automated. There&rsquo;s a million and one things missing from it, but now it does the basic story I&rsquo;ve shared it for others to hack on.</p>
 ]]></content>
   </entry>
   
@@ -82,42 +82,42 @@
 
 <p>Monitoring sucks.</p>
 
-<p>Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
+<p>Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
 
-<p>I&#8217;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&#8217;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
+<p>I&rsquo;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&rsquo;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
 
-<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&#8217;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
+<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&rsquo;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
 
-<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&#8217;t alone</a> in thinking about monitoring from this perspective.</p>
+<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&rsquo;t alone</a> in thinking about monitoring from this perspective.</p>
 
 <p>Reusing the application behaviours in production is a natural, logical extension of <a href="blog/2011/11/13/the-testing-pipeline/">the testing pipeline</a>. Were we able to ensure that the <a href="blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">behaviours include non-functional requirements</a>, would it be possible to use these monitored behaviours to converge an environment towards a state that passes all scenarios?</p>
 
-<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&#8217;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
+<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&rsquo;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
 
 <p><a href="https://github.com/cloudfoundry/">Cloud Foundry</a>(brilliant) uses a health manager, message bus, and cloud controller interacting to accomplish something similar. In this situation the cloud controller knows how to converge the state of the environment when the health manager observes a disparity between observed and desired states.</p>
 
-<p>I&#8217;m thinking about developing a system that works in the following way(&#8221;<em>The Escalator</em>&#8221;). Please get in contact if you&#8217;ve got any feedback.</p>
+<p>I&rsquo;m thinking about developing a system that works in the following way(&ldquo;<em>The Escalator</em>&rdquo;). Please get in contact if you&rsquo;ve got any feedback.</p>
 
 <ul>
 <li>Barry McDevops declares an escalation pattern for his environments. These are the <em>levels</em> of escalation for convergence that failing checks can be matched to. As a crude example:
 
 <ol>
-<li>Create account with IaaS provider</li>
-<li>Create core networking and support infrastructure</li>
-<li>Create tier networking and all VMs</li>
-<li>Create an individual VM</li>
-<li>Converge VM with Chef</li>
-<li>(Re)deploy application</li>
+<li> Create account with IaaS provider</li>
+<li> Create core networking and support infrastructure</li>
+<li> Create tier networking and all VMs</li>
+<li> Create an individual VM</li>
+<li> Converge VM with Chef</li>
+<li> (Re)deploy application</li>
 </ol>
 </li>
 <li>Barry creates a series of monitoring <em>checks</em> for the non-functional requirements
 
 <ol>
-<li>IaaS provider is online</li>
-<li>(per node) ICMP ping reply</li>
-<li>(per node) app and DB services are online</li>
-<li>(per tier) app and DB services are online</li>
-<li>Smoke check of application</li>
+<li> IaaS provider is online</li>
+<li> (per node) ICMP ping reply</li>
+<li> (per node) app and DB services are online</li>
+<li> (per tier) app and DB services are online</li>
+<li> Smoke check of application</li>
 </ol>
 </li>
 <li>Barry maps each monitoring <em>check</em> to an escalation <em>level</em>
@@ -135,11 +135,11 @@
 
 
 <p>As examples:
-- If there is nothing in place (failed IaaS provider or a new system) - an entire new environment is built from scratch (escalation steps 1 through 6).
-- If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
-- If the application fails the smoke test, the application is redeployed (step 6).</p>
+&ndash; If there is nothing in place (failed IaaS provider or a new system) &ndash; an entire new environment is built from scratch (escalation steps 1 through 6).
+&ndash; If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
+&ndash; If the application fails the smoke test, the application is redeployed (step 6).</p>
 
-<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&#8217;s no point attempting to deploy an application if you have no nodes.</p>
+<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&rsquo;s no point attempting to deploy an application if you have no nodes.</p>
 
 <p>If an escalation process fails, the monitoring system could attempt a re-convergence if necessary or contact an administrator.</p>
 
@@ -156,26 +156,26 @@
 
 <blockquote><p>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</p></blockquote>
 
-<p>As I&#8217;m from an <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">operations</a> background, I&#8217;ve always had great trouble communicating with the customer over requirements that have been relevant to my domain. The usual situation is that the &#8220;customer&#8221;, often the product owner, views the working i.e. functionally complete software on a developer&#8217;s machine, but bringing this to an operational service level is an afterthought (until it goes offline, and the real customers start complaining).</p>
+<p>As I&rsquo;m from an <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">operations</a> background, I&rsquo;ve always had great trouble communicating with the customer over requirements that have been relevant to my domain. The usual situation is that the &ldquo;customer&rdquo;, often the product owner, views the working i.e. functionally complete software on a developer&rsquo;s machine, but bringing this to an operational service level is an afterthought (until it goes offline, and the real customers start complaining).</p>
 
-<p>Traditionally, capturing these specifications has fallen under the umbrella of &#8220;non-functional requirements&#8221;. As <a href="https://twitter.com/tomsulston">Tom Sulston</a> pointed out to me, this suggests requirements that <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">aren&#8217;t working</a>, which is precisely the opposite of what we&#8217;re attempting to express.</p>
+<p>Traditionally, capturing these specifications has fallen under the umbrella of &ldquo;non-functional requirements&rdquo;. As <a href="https://twitter.com/tomsulston">Tom Sulston</a> pointed out to me, this suggests requirements that <a href="http://cache.blippitt.com/wp-content/uploads/2011/03/Mushroom-Cloud.jpg">aren&rsquo;t working</a>, which is precisely the opposite of what we&rsquo;re attempting to express.</p>
 
-<p>I&#8217;ve sought to tackle this in a couple of ways.</p>
+<p>I&rsquo;ve sought to tackle this in a couple of ways.</p>
 
 <ol>
 <li><p>Spread FUD throughout the non-technical customer base.</p>
 
 <ul>
-<li>&#8220;Do you want it to explode?&#8221;</li>
-<li>&#8220;NO!&#8221;</li>
-<li>&#8220;Well you should ask for non-exploding software in your stories then!&#8221;.</li>
+<li>&ldquo;Do you want it to explode?&rdquo;</li>
+<li>&ldquo;NO!&rdquo;</li>
+<li>&ldquo;Well you should ask for non-exploding software in your stories then!&rdquo;.</li>
 </ul>
 </li>
-<li><p>Get the team in a room together and express &#8220;cross-cutting concerns&#8221; (I <a href="http://www.cockneyrhymingslang.co.uk/slang/half_inch">half-inched</a> the idea from <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>) that span the project as a whole.</p></li>
+<li><p>Get the team in a room together and express &ldquo;cross-cutting concerns&rdquo; (I <a href="http://www.cockneyrhymingslang.co.uk/slang/half_inch">half-inched</a> the idea from <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>) that span the project as a whole.</p></li>
 </ol>
 
 
-<p>I haven&#8217;t been happy with the results of either approach, so I&#8217;d be interested to talk to anyone with a satisfactory solution in this space.</p>
+<p>I haven&rsquo;t been happy with the results of either approach, so I&rsquo;d be interested to talk to anyone with a satisfactory solution in this space.</p>
 ]]></content>
   </entry>
   
@@ -184,13 +184,13 @@
     <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/"/>
     <updated>2012-01-15T07:12:00-08:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve recently seen a few articles/presentations carrying the claim &#8220;481,000 deployments a day!&#8221;, &#8220;Deployment every 3 seconds!&#8221;, or &#8220;We deploy more frequently than we breathe - or we sack the junior ops guy!&#8221;. Very exciting.</p>
+    <content type="html"><![CDATA[<p>I&rsquo;ve recently seen a few articles/presentations carrying the claim &ldquo;481,000 deployments a day!&rdquo;, &ldquo;Deployment every 3 seconds!&rdquo;, or &ldquo;We deploy more frequently than we breathe &ndash; or we sack the junior ops guy!&rdquo;. Very exciting.</p>
 
 <p>Having the capability to deploy frequently is important for a variety of reasons; fast feedback, quickly realising value, reducing risk deltas, increasing confidence, and so on. However, I also think that frequent deployment is useless without making use of that feedback.</p>
 
-<p>Continuous Deployment is an enabler of fast feedback, but it&#8217;s not the end goal. If the feedback isn&#8217;t utilised by product owners to inform their decisions, there&#8217;s little point in creating it. The practice becomes a local optimisation.</p>
+<p>Continuous Deployment is an enabler of fast feedback, but it&rsquo;s not the end goal. If the feedback isn&rsquo;t utilised by product owners to inform their decisions, there&rsquo;s little point in creating it. The practice becomes a local optimisation.</p>
 
-<p>I&#8217;ve deliberately chosen to differentiate Continuous Delivery from Continuous Deployment here, as I believe Continuous Delivery implies that <a href="blog/2011/11/06/automating-value/">value</a> is being delivered, whereas Continuous Deployment suggests focusing on deploying frequently.</p>
+<p>I&rsquo;ve deliberately chosen to differentiate Continuous Delivery from Continuous Deployment here, as I believe Continuous Delivery implies that <a href="blog/2011/11/06/automating-value/">value</a> is being delivered, whereas Continuous Deployment suggests focusing on deploying frequently.</p>
 
 <p>We need to optimise cycle time for the whole business, not just the dev/ops/devops/&lt;current silo label> team.</p>
 ]]></content>
@@ -203,19 +203,19 @@
     <id>http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline</id>
     <content type="html"><![CDATA[<p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
 
-<p>I&#8217;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
+<p>I&rsquo;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
 
 <p>I think we should reconsider the deployment pipeline as a testing pipeline. The purpose of the pipeline is to increase confidence in the release candidate as the stages are passed. These stages can be considered as hoops for the release candidates to jump through. As new functionality is added, so the hoops will need to be tailored to ensure the new functionality is fit for purpose.</p>
 
-<p>Here&#8217;s an idea of a delivery pipeline I&#8217;ve seen used many times before. It&#8217;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
+<p>Here&rsquo;s an idea of a delivery pipeline I&rsquo;ve seen used many times before. It&rsquo;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
 
-<p>Behaviours(product owner) -> unit(dev) -> <strong>code</strong>(dev) -> VCS -> unit tests(CI) -> behavioural tests(UAT) -> load tests(staging) -> security tests(staging) -> monitoring(production)</p>
+<p>Behaviours(product owner) &ndash;> unit(dev) &ndash;> <strong>code</strong>(dev) &ndash;> VCS &ndash;> unit tests(CI) &ndash;> behavioural tests(UAT) &ndash;> load tests(staging) &ndash;> security tests(staging) &ndash;> monitoring(production)</p>
 
-<p>The issue I&#8217;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
+<p>The issue I&rsquo;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
 
-<p>I&#8217;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&#8217;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&#8217;ve yet to look at how to tackle security requirements. Please get in contact with me if you&#8217;ve had any success reusing your business logic assertions throughout your pipeline; I&#8217;d be very interested to hear about your experiences.</p>
+<p>I&rsquo;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&rsquo;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&rsquo;ve yet to look at how to tackle security requirements. Please get in contact with me if you&rsquo;ve had any success reusing your business logic assertions throughout your pipeline; I&rsquo;d be very interested to hear about your experiences.</p>
 
-<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&#8217;s ability to degrade gracefully through various failure modes, and anything else that&#8217;s required to establish confidence in the release candidate.</p>
+<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&rsquo;s ability to degrade gracefully through various failure modes, and anything else that&rsquo;s required to establish confidence in the release candidate.</p>
 
 <p>You should be able to make an API call to cloud-based testing providers(such as <a href="http://www.soasta.com/">Soasta</a>) so they can use your artefact to automatically test the behaviour of your application, such as external load and security tests. The feedback from these providers can be returned to your CI server for tracking over time, and form a basis for diagnosis of any assertion failures.</p>
 
@@ -227,7 +227,7 @@
 </ul>
 
 
-<p>I&#8217;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&#8217;re interested in helping please get in touch. I&#8217;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&#8217;ve got something small working.</p>
+<p>I&rsquo;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&rsquo;re interested in helping please get in touch. I&rsquo;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&rsquo;ve got something small working.</p>
 ]]></content>
   </entry>
   
@@ -282,7 +282,7 @@
 
 <p>And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.</p>
 
-<p>Attempting to write the code for this has made me realise how much time I&#8217;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
+<p>Attempting to write the code for this has made me realise how much time I&rsquo;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
 
 <p><strong>UPDATE</strong> Cucumber-value has now been dragged kicking and screaming on to <a href="https://rubygems.org/gems/cucumber-value">Rubygems</a> and been inserted forcibly up those <a href="https://github.com/hatofmonkeys/cucumber-value">Githubs</a>.</p>
 ]]></content>
@@ -295,9 +295,9 @@
     <id>http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days</id>
     <content type="html"><![CDATA[<p>I had the good fortune to attend <a href="http://devopsdays.org/events/2011-goteborg/">Devopsdays Goteborg</a> a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice <a href="http://www.jedi.be/">Patrick Debois</a> and the other organisers.</p>
 
-<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &#8220;the business&#8221;. I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled &#8220;F**k devops, noone cares, where&#8217;s my money?&#8221;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&#8217;t seem to get a huge amount of traction.</p>
+<p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &ldquo;the business&rdquo;. I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled &ldquo;F**k devops, noone cares, where&rsquo;s my money?&rdquo;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&rsquo;t seem to get a huge amount of traction.</p>
 
-<p><strong>&#8220;The business case for devops&#8221;</strong> (very faint on the board)</p>
+<p><strong>&ldquo;The business case for devops&rdquo;</strong> (very faint on the board)</p>
 
 <p><img src="http://farm7.static.flickr.com/6226/6312913863_7f3b6b8e6a.jpg"></p>
 
@@ -305,9 +305,9 @@
 
 <p><img src="http://farm7.static.flickr.com/6101/6312937459_4295fa1ed0.jpg"></p>
 
-<p>Devops&#8217;s achilles heel is the potential it has for being introspective(ignore the ITIL/process arguments; absolute nonsense) and purely tooling focused. Changing the THEM and US attitude from dev vs ops to devops vs <a href="http://www.youtube.com/watch?v=3CiGUMQZUgU">THE MANAGEMENT</a> just shifts the issue. Patrick Debois brilliantly summarises that we should, instead, be thinking about <a href="http://www.slideshare.net/jedi4ever/devopsdays-downundervfinal">*dev*ops*</a>; unfortunately some of the devops people I&#8217;ve met seem to be more interested in teaming up against others than including them.</p>
+<p>Devops&rsquo;s achilles heel is the potential it has for being introspective(ignore the ITIL/process arguments; absolute nonsense) and purely tooling focused. Changing the THEM and US attitude from dev vs ops to devops vs <a href="http://www.youtube.com/watch?v=3CiGUMQZUgU">THE MANAGEMENT</a> just shifts the issue. Patrick Debois brilliantly summarises that we should, instead, be thinking about <a href="http://www.slideshare.net/jedi4ever/devopsdays-downundervfinal">*dev*ops*</a>; unfortunately some of the devops people I&rsquo;ve met seem to be more interested in teaming up against others than including them.</p>
 
-<p>I&#8217;m taking a look at how I think we can address this problem, by perhaps changing the focus from &#8220;delivering&#8221; to &#8220;delivering value&#8221;. Coming from a devops background, I&#8217;m obviously going to create a tool to help me. That should teach those management types a lesson.</p>
+<p>I&rsquo;m taking a look at how I think we can address this problem, by perhaps changing the focus from &ldquo;delivering&rdquo; to &ldquo;delivering value&rdquo;. Coming from a devops background, I&rsquo;m obviously going to create a tool to help me. That should teach those management types a lesson.</p>
 ]]></content>
   </entry>
   
@@ -316,7 +316,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/"/>
     <updated>2011-10-25T23:21:00-07:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress</id>
-    <content type="html"><![CDATA[<p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&#8217;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
+    <content type="html"><![CDATA[<p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&rsquo;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
 ]]></content>
   </entry>
   

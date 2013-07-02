@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&# &hellip;">
+  <meta name="description" content="There&rsquo;s no point pretending I don&rsquo;t love &lsquo;The PaaS&rsquo;. I do. I have spent too much of my career fighting battles I shouldn& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,10 +21,11 @@
   <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -58,12 +59,14 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:blog.hatofmonkeys.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
@@ -86,50 +89,55 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2013-06-30T18:04:00-07:00" pubdate>Jun 30<span>th</span>, 2013</time>
+
+<time datetime="2013-06-30T18:04:00-07:00" pubdate data-updated="true">Jun 30<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>There&#8217;s no point pretending I don&#8217;t love &#8216;The PaaS&#8217;. I do. I have spent too much of my career fighting battles I shouldn&#8217;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
+<div class="entry-content"><p>There&rsquo;s no point pretending I don&rsquo;t love &lsquo;The PaaS&rsquo;. I do. I have spent too much of my career fighting battles I shouldn&rsquo;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
 
 <h3>Cloud Foundry</h3>
 
 <p>Having played with Heroku, and being dismayed at not being able to play with my own Heroku, I was overjoyed when VMWare released Cloud Foundry. I created a Vagrant box on the Cloud Foundry release day and began distributing it to clients. I worked with one of my clients at the time, OpenCredo, to develop and deploy one of their new services to a Cloud Foundry installation I created. I believe this was the first SLA-led production deployment of Cloud Foundry globally.</p>
 
-<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&#8217;d fulfilled using PaaS, including OpenCredo&#8217;s.</p>
+<p>I spoke about the rationale behind running/developing your own PaaS at QCon London 2012. I also discussed some of the use cases I&rsquo;d fulfilled using PaaS, including OpenCredo&rsquo;s.</p>
 
-<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 - Lessons Learned Deploying PaaS</a></p>
+<p><a href="http://www.infoq.com/presentations/Lessons-Learned-in-Deploying-PaaS">QCon 2012 &ndash; Lessons Learned Deploying PaaS</a></p>
 
 <h3>OpenShift</h3>
 
-<p>I was similarly happy when I heard RedHat had bought Makara, a product I&#8217;d briefly experimented with, and were looking at producing their own PaaS. I&#8217;ve used RedHat-based systems for many years with great success, have always found <a href="/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
+<p>I was similarly happy when I heard RedHat had bought Makara, a product I&rsquo;d briefly experimented with, and were looking at producing their own PaaS. I&rsquo;ve used RedHat-based systems for many years with great success, have always found <a href="/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
 
 <p>I was scoping a large project at this time with availability as a prime concern. It occurred to me that I could use two turnkey PaaSes simultaneously, Cloud Foundry and OpenShift, such that if there was an issue with either I could simply direct all traffic to the other PaaS. I discussed the deployment and progress at DevopsDays.</p>
 
-<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 - How I Learned to Stop Worrying and Love the PaaS</a> - I start about 32 minutes in.</p>
+<p><a href="http://new.livestream.com/devopsdaysorg/devopsdaysRome/videos/4516372">DevopsDays Rome 2012 &ndash; How I Learned to Stop Worrying and Love the PaaS</a> &ndash; I start about 32 minutes in.</p>
 
 <h3>From Dream to Reality</h3>
 
-<p>Unfortunately, the project didn&#8217;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell - Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
+<p>Unfortunately, the project didn&rsquo;t quite work out as planned. We had a number of issues with OpenShift which meant we had no choice but to withdraw it from production usage. Scalability was an enormous problem; bringing an application to production scale was a sub-twenty second operation in Cloud Foundry; it took fourty-eight hours plus in OpenShift. We had to write our own deployment and orchestration layer for OpenShift based on Chef and shell &ndash; Cloud Foundry has the fantastic BOSH tool enabling deployment, scaling, and upgrades. These reasons, alongside some nasty bugs and outages, meant we were unable to use OpenShift for our deployment.</p>
 
-<p>Beyond this I feel OpenShift, like many &#8216;PaaSish&#8217; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
+<p>Beyond this I feel OpenShift, like many &lsquo;PaaSish&rsquo; systems, has got the focus wrong. There seems to be a plethora of container-orchestration systems being produced at the moment, which are really just a slight re-focus on the IaaS abstraction layer. OpenShift is in danger of falling into this trap. PaaS needs to remain focussed on the application as the unit of currency, and not the container or virtual machine. It looks entirely possible (and would make an interesting project) to run Cloud Foundry inside OpenShift, illustrating the conceptual difference.</p>
 
-<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&#8217;s blog.</p>
+<p>We settled on using distributed Cloud Foundry instances across diverse IaaS providers to deliver the project; it was a great success. I blogged about it for Cloud Foundry&rsquo;s blog.</p>
 
-<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post - UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
+<p><a href="http://blog.cloudfoundry.com/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">CloudFoundry.com blog post &ndash; UK Charity Raises Record Donations Powered by Cloud Foundry</a></p>
 
 <h3>Which PaaS?</h3>
 
-<p>I&#8217;ve remained supportive of RedHat&#8217;s efforts to deliver a PaaS solution but fear they&#8217;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&#8217;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
+<p>I&rsquo;ve remained supportive of RedHat&rsquo;s efforts to deliver a PaaS solution but fear they&rsquo;re not quite there yet. I organised a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/120336492/">London PaaS User Group meetup  to help RedHat to put their side of the case across to the London community</a>. It sounded like they had some exciting developments in the pipeline but even with the new features it&rsquo;s likely we would have been unable to deliver the enterprise-grade services our project required.</p>
 
-<p>Perhaps Redhat&#8217;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
+<p>Perhaps Redhat&rsquo;s customer base are largely systems administrators rather than developers. Perhaps Redhat have more experience at deploying and managing servers than applications. For whatever reason, I think it would be a denigration of PaaS to allow it to be misconstrued as container-based IaaS. Containers can be a by-product of service provision but should not be the focus of PaaS.</p>
 
-<p>Cloud Foundry isn&#8217;t perfect but, at the moment, is the only PaaS product I&#8217;d recommend to anyone looking to make a long-term investment.</p>
+<p>Cloud Foundry isn&rsquo;t perfect but, at the moment, is the only PaaS product I&rsquo;d recommend to anyone looking to make a long-term investment.</p>
 </div>
 
 
@@ -145,17 +153,20 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2013-06-30T18:04:00-07:00" pubdate>Jun 30<span>th</span>, 2013</time>
+
+<time datetime="2013-06-30T18:04:00-07:00" pubdate data-updated="true">Jun 30<span>th</span>, 2013</time>
       
 
 
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -213,15 +224,15 @@
 </section>
 
 <section>
-  <h1>Github Repos</h1>
+  <h1>GitHub Repos</h1>
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
   
-  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -243,23 +254,6 @@
 
 
 <section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("hatofmonkeys", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/hatofmonkeys" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @hatofmonkeys</a>
-  
-</section>
-
-
-<section>
   <h1>On Delicious</h1>
   <div id="delicious"></div>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/hatofmonkeys?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
@@ -268,6 +262,11 @@
 
 
 
+<section>
+  <h1>Twitter</h1>
+  <a class="twitter-timeline" href="https://twitter.com/hatofmonkeys" data-widget-id="351933447830396928">Tweets by @hatofmonkeys</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
 
   
 </aside>
@@ -288,8 +287,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -305,7 +304,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -321,16 +320,6 @@
   </script>
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 

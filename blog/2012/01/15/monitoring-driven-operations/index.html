@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="RAMBLING BLOG POST ALERT Monitoring sucks. Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns &hellip;">
+  <meta name="description" content="RAMBLING BLOG POST ALERT Monitoring sucks. Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,10 +21,11 @@
   <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -58,12 +59,14 @@
   <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
   
 </ul>
+  
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:blog.hatofmonkeys.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
@@ -86,9 +89,14 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T08:11:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T08:11:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
         
       </p>
     
@@ -99,42 +107,42 @@
 
 <p>Monitoring sucks.</p>
 
-<p>Following the &#8220;if it hurts, do it more often&#8221; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
+<p>Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
 
-<p>I&#8217;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&#8217;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
+<p>I&rsquo;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&rsquo;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
 
-<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&#8217;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
+<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&rsquo;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
 
-<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&#8217;t alone</a> in thinking about monitoring from this perspective.</p>
+<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&rsquo;t alone</a> in thinking about monitoring from this perspective.</p>
 
 <p>Reusing the application behaviours in production is a natural, logical extension of <a href="blog/2011/11/13/the-testing-pipeline/">the testing pipeline</a>. Were we able to ensure that the <a href="blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">behaviours include non-functional requirements</a>, would it be possible to use these monitored behaviours to converge an environment towards a state that passes all scenarios?</p>
 
-<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&#8217;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
+<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&rsquo;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
 
 <p><a href="https://github.com/cloudfoundry/">Cloud Foundry</a>(brilliant) uses a health manager, message bus, and cloud controller interacting to accomplish something similar. In this situation the cloud controller knows how to converge the state of the environment when the health manager observes a disparity between observed and desired states.</p>
 
-<p>I&#8217;m thinking about developing a system that works in the following way(&#8221;<em>The Escalator</em>&#8221;). Please get in contact if you&#8217;ve got any feedback.</p>
+<p>I&rsquo;m thinking about developing a system that works in the following way(&ldquo;<em>The Escalator</em>&rdquo;). Please get in contact if you&rsquo;ve got any feedback.</p>
 
 <ul>
 <li>Barry McDevops declares an escalation pattern for his environments. These are the <em>levels</em> of escalation for convergence that failing checks can be matched to. As a crude example:
 
 <ol>
-<li>Create account with IaaS provider</li>
-<li>Create core networking and support infrastructure</li>
-<li>Create tier networking and all VMs</li>
-<li>Create an individual VM</li>
-<li>Converge VM with Chef</li>
-<li>(Re)deploy application</li>
+<li> Create account with IaaS provider</li>
+<li> Create core networking and support infrastructure</li>
+<li> Create tier networking and all VMs</li>
+<li> Create an individual VM</li>
+<li> Converge VM with Chef</li>
+<li> (Re)deploy application</li>
 </ol>
 </li>
 <li>Barry creates a series of monitoring <em>checks</em> for the non-functional requirements
 
 <ol>
-<li>IaaS provider is online</li>
-<li>(per node) ICMP ping reply</li>
-<li>(per node) app and DB services are online</li>
-<li>(per tier) app and DB services are online</li>
-<li>Smoke check of application</li>
+<li> IaaS provider is online</li>
+<li> (per node) ICMP ping reply</li>
+<li> (per node) app and DB services are online</li>
+<li> (per tier) app and DB services are online</li>
+<li> Smoke check of application</li>
 </ol>
 </li>
 <li>Barry maps each monitoring <em>check</em> to an escalation <em>level</em>
@@ -152,11 +160,11 @@
 
 
 <p>As examples:
-- If there is nothing in place (failed IaaS provider or a new system) - an entire new environment is built from scratch (escalation steps 1 through 6).
-- If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
-- If the application fails the smoke test, the application is redeployed (step 6).</p>
+&ndash; If there is nothing in place (failed IaaS provider or a new system) &ndash; an entire new environment is built from scratch (escalation steps 1 through 6).
+&ndash; If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
+&ndash; If the application fails the smoke test, the application is redeployed (step 6).</p>
 
-<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&#8217;s no point attempting to deploy an application if you have no nodes.</p>
+<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&rsquo;s no point attempting to deploy an application if you have no nodes.</p>
 
 <p>If an escalation process fails, the monitoring system could attempt a re-convergence if necessary or contact an administrator.</p>
 
@@ -176,17 +184,20 @@
 
 
 
+
+
+
+
   
 
-<time datetime="2012-01-15T08:11:00-08:00" pubdate>Jan 15<span>th</span>, 2012</time>
+
+<time datetime="2012-01-15T08:11:00-08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
       
 
 
     </p>
     
       <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/" data-via="hatofmonkeys" data-counturl="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -202,7 +213,7 @@
         <a class="basic-alignment left" href="/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/" title="Previous Post: Bridging the Gap Between Functional and Non-Functional">&laquo; Bridging the Gap Between Functional and Non-Functional</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/01/15/system-build-reproducibility/" title="next Post: System Build Reproducibility">System Build Reproducibility &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/01/15/system-build-reproducibility/" title="Next Post: System Build Reproducibility">System Build Reproducibility &raquo;</a>
       
     </p>
   </footer>
@@ -246,15 +257,15 @@
 </section>
 
 <section>
-  <h1>Github Repos</h1>
+  <h1>GitHub Repos</h1>
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
   
-  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on Github
+  <a href="https://github.com/hatofmonkeys">@hatofmonkeys</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -276,23 +287,6 @@
 
 
 <section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating...</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("hatofmonkeys", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/hatofmonkeys" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @hatofmonkeys</a>
-  
-</section>
-
-
-<section>
   <h1>On Delicious</h1>
   <div id="delicious"></div>
   <script type="text/javascript" src="http://feeds.delicious.com/v2/json/hatofmonkeys?count=3&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
@@ -301,6 +295,11 @@
 
 
 
+<section>
+  <h1>Twitter</h1>
+  <a class="twitter-timeline" href="https://twitter.com/hatofmonkeys" data-widget-id="351933447830396928">Tweets by @hatofmonkeys</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
 
   
 </aside>
@@ -321,8 +320,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/';
         var disqus_script = 'embed.js';
       
     (function () {
@@ -338,7 +337,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -354,16 +353,6 @@
   </script>
 
 
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
 
 
 
