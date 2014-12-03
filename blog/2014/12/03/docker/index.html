@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>The Testing Pipeline - Hatofmonkeys</title>
+  <title>Docker, Investors, and Ecosystems - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I was fortunate in being able to attend Citcon this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely &hellip;">
+  <meta name="description" content="Rocket As you&rsquo;re probably aware by now &ndash; CoreOS have released a new container runtime called &lsquo;Rocket&rsquo;. Rocket will inevitably &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2014/12/03/docker">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">The Testing Pipeline</h1>
+      <h1 class="entry-title">Docker, Investors, and Ecosystems</h1>
     
     
       <p class="meta">
@@ -96,40 +96,30 @@
   
 
 
-<time datetime="2011-11-13T11:11:00+00:00" pubdate data-updated="true">Nov 13<span>th</span>, 2011</time>
+<time datetime="2014-12-03T09:13:00+00:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
+<div class="entry-content"><h3>Rocket</h3>
 
-<p>I&rsquo;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
+<p>As you&rsquo;re probably aware by now &ndash; CoreOS have released a new container runtime called &lsquo;<a href="https://coreos.com/blog/rocket/">Rocket</a>&rsquo;. Rocket will inevitably be perceived as a reaction, and competitor, to Docker. The language in CoreOS&rsquo;s Rocket blog post suggests Docker have deviated from CoreOS&rsquo;s preferred path, and the tone suggests an accusation of betrayal. The timing of CoreOS&rsquo;s announcement, the week before DockerCon EU, implies a deliberate attempt to undermine Docker&rsquo;s marketing.</p>
 
-<p>I think we should reconsider the deployment pipeline as a testing pipeline. The purpose of the pipeline is to increase confidence in the release candidate as the stages are passed. These stages can be considered as hoops for the release candidates to jump through. As new functionality is added, so the hoops will need to be tailored to ensure the new functionality is fit for purpose.</p>
+<h3>Reaction</h3>
 
-<p>Here&rsquo;s an idea of a delivery pipeline I&rsquo;ve seen used many times before. It&rsquo;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
+<p>GigaOM have published a great summary of the community&rsquo;s reaction <a href="https://gigaom.com/2014/12/02/why-coreos-just-fired-a-rocket-at-docker/">here</a>. Given Docker&rsquo;s amazing ecosystem and adoption levels I&rsquo;m actually quite surprised more people haven&rsquo;t come out in strong support of Docker. Solomon Hykes has exactly three things to say (followed by a subsequent thirteen) <a href="https://news.ycombinator.com/item?id=8682525">here</a>.</p>
 
-<p>Behaviours(product owner) &ndash;> unit(dev) &ndash;> <strong>code</strong>(dev) &ndash;> VCS &ndash;> unit tests(CI) &ndash;> behavioural tests(UAT) &ndash;> load tests(staging) &ndash;> security tests(staging) &ndash;> monitoring(production)</p>
+<h3>The Changing Docker</h3>
 
-<p>The issue I&rsquo;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
+<p>I spoke at <a href="http://blog.docker.com/2014/07/dockercon-video/">DockerCon 2014 about the Cloud Foundry/Docker integration</a> project I&rsquo;d been working on. This work has now been subsumed into the <a href="https://www.youtube.com/watch?v=e76a50ZgzxM">Docker on Diego</a> work which is beginning to form the core of Cloud Foundry V3. While working on the initial proof of concept I had regular communication with the people at Docker. I found them friendly and open to the idea of using Docker containers as another deployable unit within Cloud Foundry.</p>
 
-<p>I&rsquo;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&rsquo;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&rsquo;ve yet to look at how to tackle security requirements. Please get in contact with me if you&rsquo;ve had any success reusing your business logic assertions throughout your pipeline; I&rsquo;d be very interested to hear about your experiences.</p>
+<p>Once Docker <a href="http://thenewstack.io/docker-sets-sights-on-enterprises-with-40-million-investment/">raised their $40M investment</a> the tone changed. Docker became a &lsquo;<a href="https://www.docker.com/whatisdocker/">platform</a>&rsquo;. Docker&rsquo;s collaboration with Cloud Foundry, to use Docker inside Cloud Foundry, <a href="https://docs.google.com/document/d/1IBfDDnn_Kr0_P8iUubHX3RdvGxQ9isXczhjLW3pMZiM/pub">seemed to stall</a>. It appeared Docker were trying to eat their ecosystem. Was investor pressure for a huge return causing Docker to try to capture too many markets rather than focusing on their core?</p>
 
-<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&rsquo;s ability to degrade gracefully through various failure modes, and anything else that&rsquo;s required to establish confidence in the release candidate.</p>
+<h3>Cloud Foundry Future</h3>
 
-<p>You should be able to make an API call to cloud-based testing providers(such as <a href="http://www.soasta.com/">Soasta</a>) so they can use your artefact to automatically test the behaviour of your application, such as external load and security tests. The feedback from these providers can be returned to your CI server for tracking over time, and form a basis for diagnosis of any assertion failures.</p>
-
-<p>Without a fully-automated testing pipeline, I see one of two outcomes regularly at the moment:</p>
-
-<ul>
-<li>New functionality is not tested before release. This implies risk.</li>
-<li>Releases are delayed while scripts are updated, and manual load/security tests booked with vendors and executed. This inhibits business agility and delays feedback cycles.</li>
-</ul>
-
-
-<p>I&rsquo;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&rsquo;re interested in helping please get in touch. I&rsquo;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&rsquo;ve got something small working.</p>
+<p>Cloud Foundry will continue to orchestrate various units of currency; applications via buildpacks, containers via Docker, and potentially containers via Rocket. My company, <a href="http://www.cloudcredo.com/">CloudCredo</a>, is already looking at what a Rocket integration with Cloud Foundry would look like. <code>cf push https://storage-mirror.example.com/webapp-1.0.0.aci</code> is on the way.</p>
 </div>
 
 
@@ -152,7 +142,7 @@
   
 
 
-<time datetime="2011-11-13T11:11:00+00:00" pubdate data-updated="true">Nov 13<span>th</span>, 2011</time>
+<time datetime="2014-12-03T09:13:00+00:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2014</time>
       
 
 
@@ -171,10 +161,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/11/06/automating-value/" title="Previous Post: Automating Value">&laquo; Automating Value</a>
+        <a class="basic-alignment left" href="/blog/2014/03/15/configuration-management-isnt-stupid/" title="Previous Post: Configuration Management isn't Stupid, but it Should Be">&laquo; Configuration Management isn't Stupid, but it Should Be</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/01/15/continuous-deployment-a-vanity-metric/" title="Next Post: Continuous Deployment - A Vanity Metric?">Continuous Deployment - A Vanity Metric? &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +269,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2014/12/03/docker/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2014/12/03/docker/';
         var disqus_script = 'embed.js';
       
     (function () {

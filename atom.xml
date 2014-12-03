@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Hatofmonkeys]]></title>
-  <link href="http://hatofmonkeys.github.io/atom.xml" rel="self"/>
-  <link href="http://hatofmonkeys.github.io/"/>
-  <updated>2014-03-15T11:21:39+00:00</updated>
-  <id>http://hatofmonkeys.github.io/</id>
+  <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
+  <link href="http://blog.hatofmonkeys.com/"/>
+  <updated>2014-12-03T11:35:39+00:00</updated>
+  <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
     
@@ -14,10 +14,35 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Docker, Investors, and Ecosystems]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2014/12/03/docker/"/>
+    <updated>2014-12-03T09:13:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2014/12/03/docker</id>
+    <content type="html"><![CDATA[<h3>Rocket</h3>
+
+<p>As you&rsquo;re probably aware by now &ndash; CoreOS have released a new container runtime called &lsquo;<a href="https://coreos.com/blog/rocket/">Rocket</a>&rsquo;. Rocket will inevitably be perceived as a reaction, and competitor, to Docker. The language in CoreOS&rsquo;s Rocket blog post suggests Docker have deviated from CoreOS&rsquo;s preferred path, and the tone suggests an accusation of betrayal. The timing of CoreOS&rsquo;s announcement, the week before DockerCon EU, implies a deliberate attempt to undermine Docker&rsquo;s marketing.</p>
+
+<h3>Reaction</h3>
+
+<p>GigaOM have published a great summary of the community&rsquo;s reaction <a href="https://gigaom.com/2014/12/02/why-coreos-just-fired-a-rocket-at-docker/">here</a>. Given Docker&rsquo;s amazing ecosystem and adoption levels I&rsquo;m actually quite surprised more people haven&rsquo;t come out in strong support of Docker. Solomon Hykes has exactly three things to say (followed by a subsequent thirteen) <a href="https://news.ycombinator.com/item?id=8682525">here</a>.</p>
+
+<h3>The Changing Docker</h3>
+
+<p>I spoke at <a href="http://blog.docker.com/2014/07/dockercon-video/">DockerCon 2014 about the Cloud Foundry/Docker integration</a> project I&rsquo;d been working on. This work has now been subsumed into the <a href="https://www.youtube.com/watch?v=e76a50ZgzxM">Docker on Diego</a> work which is beginning to form the core of Cloud Foundry V3. While working on the initial proof of concept I had regular communication with the people at Docker. I found them friendly and open to the idea of using Docker containers as another deployable unit within Cloud Foundry.</p>
+
+<p>Once Docker <a href="http://thenewstack.io/docker-sets-sights-on-enterprises-with-40-million-investment/">raised their $40M investment</a> the tone changed. Docker became a &lsquo;<a href="https://www.docker.com/whatisdocker/">platform</a>&rsquo;. Docker&rsquo;s collaboration with Cloud Foundry, to use Docker inside Cloud Foundry, <a href="https://docs.google.com/document/d/1IBfDDnn_Kr0_P8iUubHX3RdvGxQ9isXczhjLW3pMZiM/pub">seemed to stall</a>. It appeared Docker were trying to eat their ecosystem. Was investor pressure for a huge return causing Docker to try to capture too many markets rather than focusing on their core?</p>
+
+<h3>Cloud Foundry Future</h3>
+
+<p>Cloud Foundry will continue to orchestrate various units of currency; applications via buildpacks, containers via Docker, and potentially containers via Rocket. My company, <a href="http://www.cloudcredo.com/">CloudCredo</a>, is already looking at what a Rocket integration with Cloud Foundry would look like. <code>cf push https://storage-mirror.example.com/webapp-1.0.0.aci</code> is on the way.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Configuration Management isn't Stupid, but it Should Be]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2014/03/15/configuration-management-isnt-stupid/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2014/03/15/configuration-management-isnt-stupid/"/>
     <updated>2014-03-15T10:37:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2014/03/15/configuration-management-isnt-stupid</id>
+    <id>http://blog.hatofmonkeys.com/blog/2014/03/15/configuration-management-isnt-stupid</id>
     <content type="html"><![CDATA[<p>Devops is about holistic, systems-orientated thinking; it&rsquo;s been misappropriated to be about configuration management. I&rsquo;ve noticed a decline in the number of people from a development background at Devops conferences &ndash; maybe they&rsquo;ve lost interest in talking about Puppet vs Chef vs Salt vs Ansible vs CFEngine vs X vs Y vs Z?</p>
 
 <h3>Bricks</h3>
@@ -61,9 +86,9 @@
   
   <entry>
     <title type="html"><![CDATA[When to Pass on a PaaS]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2013/06/30/when-to-pass-on-a-paas/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/"/>
     <updated>2013-06-30T18:04:00+01:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2013/06/30/when-to-pass-on-a-paas</id>
+    <id>http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas</id>
     <content type="html"><![CDATA[<p>There&rsquo;s no point pretending I don&rsquo;t love &lsquo;The PaaS&rsquo;. I do. I have spent too much of my career fighting battles I shouldn&rsquo;t be fighting; re-inventing similar-looking systems time and time again. The idea I could just drop an application into a flexible platform and expect it to run, without consuming my entire life for the preceeding three months writing Chef cookbooks and wrestling EC2, sounds fantastic.</p>
 
 <h3>Cloud Foundry</h3>
@@ -76,7 +101,7 @@
 
 <h3>OpenShift</h3>
 
-<p>I was similarly happy when I heard RedHat had bought Makara, a product I&rsquo;d briefly experimented with, and were looking at producing their own PaaS. I&rsquo;ve used RedHat-based systems for many years with great success, have always found <a href="http://hatofmonkeys.github.io/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
+<p>I was similarly happy when I heard RedHat had bought Makara, a product I&rsquo;d briefly experimented with, and were looking at producing their own PaaS. I&rsquo;ve used RedHat-based systems for many years with great success, have always found <a href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/">YUM/RPM great to use</a>, and was apparently the 7th person in the UK to achieve RedHat Architect status. A RedHat-delivered PaaS would surely be the panacea for all my problems.</p>
 
 <p>I was scoping a large project at this time with availability as a prime concern. It occurred to me that I could use two turnkey PaaSes simultaneously, Cloud Foundry and OpenShift, such that if there was an issue with either I could simply direct all traffic to the other PaaS. I discussed the deployment and progress at DevopsDays.</p>
 
@@ -104,9 +129,9 @@
   
   <entry>
     <title type="html"><![CDATA[System Build Reproducibility]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2012/01/15/system-build-reproducibility/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility/"/>
     <updated>2012-01-15T09:59:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2012/01/15/system-build-reproducibility</id>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/system-build-reproducibility</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&rsquo;s snapshot functionality</a>. I&rsquo;ve often questioned how reproducible their systems are; I&rsquo;m usually met by a blank look.</p>
 
 <p>I&rsquo;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments &ndash; or even in a single tier &ndash; due to scaling up/down.</p>
@@ -121,9 +146,9 @@
   
   <entry>
     <title type="html"><![CDATA[Monitoring-Driven Operations]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2012/01/15/monitoring-driven-operations/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations/"/>
     <updated>2012-01-15T08:11:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2012/01/15/monitoring-driven-operations</id>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/monitoring-driven-operations</id>
     <content type="html"><![CDATA[<p><strong>RAMBLING BLOG POST ALERT</strong></p>
 
 <p>Monitoring sucks.</p>
@@ -195,9 +220,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bridging the Gap Between Functional and Non-Functional]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/"/>
     <updated>2012-01-15T07:54:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional</id>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional</id>
     <content type="html"><![CDATA[<p>According to the <a href="http://agilemanifesto.org/principles.html">principles behind the Agile Manifesto</a></p>
 
 <blockquote><p>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</p></blockquote>
@@ -227,9 +252,9 @@
   
   <entry>
     <title type="html"><![CDATA[Continuous Deployment - A Vanity Metric?]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2012/01/15/continuous-deployment-a-vanity-metric/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric/"/>
     <updated>2012-01-15T07:12:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2012/01/15/continuous-deployment-a-vanity-metric</id>
+    <id>http://blog.hatofmonkeys.com/blog/2012/01/15/continuous-deployment-a-vanity-metric</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve recently seen a few articles/presentations carrying the claim &ldquo;481,000 deployments a day!&rdquo;, &ldquo;Deployment every 3 seconds!&rdquo;, or &ldquo;We deploy more frequently than we breathe &ndash; or we sack the junior ops guy!&rdquo;. Very exciting.</p>
 
 <p>Having the capability to deploy frequently is important for a variety of reasons; fast feedback, quickly realising value, reducing risk deltas, increasing confidence, and so on. However, I also think that frequent deployment is useless without making use of that feedback.</p>
@@ -244,9 +269,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Testing Pipeline]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2011/11/13/the-testing-pipeline/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline/"/>
     <updated>2011-11-13T11:11:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2011/11/13/the-testing-pipeline</id>
+    <id>http://blog.hatofmonkeys.com/blog/2011/11/13/the-testing-pipeline</id>
     <content type="html"><![CDATA[<p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
 
 <p>I&rsquo;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
@@ -279,9 +304,9 @@
   
   <entry>
     <title type="html"><![CDATA[Automating Value]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2011/11/06/automating-value/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/"/>
     <updated>2011-11-06T13:26:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2011/11/06/automating-value</id>
+    <id>http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value</id>
     <content type="html"><![CDATA[<p>I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular <a href="http://cukes.info">Cucumber</a>. Despite this affection I’ve thought it a little unusual that BDD frameworks ignore/discard the business value proposition stated at the beginning of a feature. It’s always felt like we’re saying “that’s too difficult to do anything useful with, we’ll leave that to the business idiots”. With that in mind, and being a business idiot, I’m going to attempt to construct a model for value and automate the testing of business-based assertions.</p>
 
 <p>What I’m really trying to achieve is to extend the automated feedback cycle back into the business. The sooner the decision makers gain meaningful feedback about the impact of their decisions, the sooner they can start making useful decisions (and fewer useless ones).</p>
@@ -336,9 +361,9 @@
   
   <entry>
     <title type="html"><![CDATA[Devops Days]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2011/11/04/devops-days/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days/"/>
     <updated>2011-11-04T14:35:00+00:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2011/11/04/devops-days</id>
+    <id>http://blog.hatofmonkeys.com/blog/2011/11/04/devops-days</id>
     <content type="html"><![CDATA[<p>I had the good fortune to attend <a href="http://devopsdays.org/events/2011-goteborg/">Devopsdays Goteborg</a> a few weeks back, and met a whole bunch of wonderful people. Many thanks to the legendary, words-cannot-do-this-man-justice <a href="http://www.jedi.be/">Patrick Debois</a> and the other organisers.</p>
 
 <p>Whilst there seemed to be a lots of fantastic, enlightening conversation around the devops space, there also seemed to be a lot of complaints about lack of sponsorship for devops from those people in &ldquo;the business&rdquo;. I took my usual subtle, sensitive approach to a perceived problem and proposed an exploratory openspace entitled &ldquo;F**k devops, noone cares, where&rsquo;s my money?&rdquo;. Whilst I undermined myself somewhat by turning up late for my own openspace, my ideas didn&rsquo;t seem to get a huge amount of traction.</p>
@@ -359,9 +384,9 @@
   
   <entry>
     <title type="html"><![CDATA[Blogging With Octopress]]></title>
-    <link href="http://hatofmonkeys.github.io/blog/2011/10/25/blogging-with-octopress/"/>
+    <link href="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/"/>
     <updated>2011-10-25T23:21:00+01:00</updated>
-    <id>http://hatofmonkeys.github.io/blog/2011/10/25/blogging-with-octopress</id>
+    <id>http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress</id>
     <content type="html"><![CDATA[<p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&rsquo;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
 ]]></content>
   </entry>
