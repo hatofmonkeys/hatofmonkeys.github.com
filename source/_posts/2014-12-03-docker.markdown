@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Docker, Investors, and Ecosystems"
+date: 2014-12-03 09:13
+comments: true
+categories: 
+---
+###Rocket
+As you're probably aware by now - CoreOS have released a new container runtime called '[Rocket](https://coreos.com/blog/rocket/)'. Rocket will inevitably be perceived as a reaction, and competitor, to Docker. The language in CoreOS's Rocket blog post suggests Docker have deviated from CoreOS's preferred path, and the tone suggests an accusation of betrayal. The timing of CoreOS's announcement, the week before DockerCon EU, implies a deliberate attempt to undermine Docker's marketing.
+
+###Reaction
+
+GigaOM have published a great summary of the community's reaction [here](https://gigaom.com/2014/12/02/why-coreos-just-fired-a-rocket-at-docker/). Given Docker's amazing ecosystem and adoption levels I'm actually quite surprised more people haven't come out in strong support of Docker. Solomon Hykes has exactly three things to say (followed by a subsequent thirteen) [here](https://news.ycombinator.com/item?id=8682525).
+
+###The Changing Docker
+
+I spoke at [DockerCon 2014 about the Cloud Foundry/Docker integration](http://blog.docker.com/2014/07/dockercon-video/) project I'd been working on. This work has now been subsumed into the [Docker on Diego](https://www.youtube.com/watch?v=e76a50ZgzxM) work which is beginning to form the core of Cloud Foundry V3. While working on the initial proof of concept I had regular communication with the people at Docker. I found them friendly and open to the idea of using Docker containers as another deployable unit within Cloud Foundry.
+
+Once Docker [raised their $40M investment](http://thenewstack.io/docker-sets-sights-on-enterprises-with-40-million-investment/) the tone changed. Docker became a '[platform](https://www.docker.com/whatisdocker/)'. Docker's collaboration with Cloud Foundry, to use Docker inside Cloud Foundry, [seemed to stall](https://docs.google.com/document/d/1IBfDDnn_Kr0_P8iUubHX3RdvGxQ9isXczhjLW3pMZiM/pub). It appeared Docker were trying to eat their ecosystem. Was investor pressure for a huge return causing Docker to try to capture too many markets rather than focusing on their core?
+
+###Cloud Foundry Future
+
+Cloud Foundry will continue to orchestrate various units of currency; applications via buildpacks, containers via Docker, and potentially containers via Rocket. My company, [CloudCredo](http://www.cloudcredo.com/), is already looking at what a Rocket integration with Cloud Foundry would look like. `cf push https://storage-mirror.example.com/webapp-1.0.0.aci` is on the way.
