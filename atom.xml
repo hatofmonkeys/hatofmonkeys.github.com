@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2014-12-25T12:45:23+00:00</updated>
+  <updated>2014-12-26T08:50:23+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cloud Foundry Summit 2014]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2014/12/26/cloud-foundry-summit-2014/"/>
+    <updated>2014-12-26T08:39:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2014/12/26/cloud-foundry-summit-2014</id>
+    <content type="html"><![CDATA[<h2>26th December, Blog #2</h2>
+
+<p>I wrote this blog back in June but didn&rsquo;t have time to publish it. No time like the present.</p>
+
+<h2>Cloud Foundry Summit 2014</h2>
+
+<p>Now the dust has settled following the CF Summit I thought it a good time to note some of the lasting impressions.</p>
+
+<p>CF Summit was a great conference. The buzz and energy around the place was tangible. This year&rsquo;s host, Andrew Clay Shafer, gave the event a friendly, personable feel, and also has(had) great hair. The big hitters from the Cloud Foundry community were present, along with a newer users from a diverse range of organisations.</p>
+
+<p>Personally, I felt the Summit represented the emergence of Cloud Foundry as the leading enterprise PaaS. I backed Cloud Foundry from day one, and I&rsquo;ve been vocal about the <a href="http://blog.hatofmonkeys.com/blog/2013/06/30/when-to-pass-on-a-paas/">shortcomings of other PaaSes that fall short of CF</a>. Witnessing some of the biggest names in tech queuing up to take the stage to endorse Cloud Foundry was immensely gratifying. The corollary to those endorsements was the quantity of real world Cloud Foundry success stories in the talks; Cloud Foundry has broken through, and proven its worth.</p>
+
+<p>One of the chief reasons for the dramatic rise in enterprise adoption of Cloud Foundry has been the <a href="http://www.cloudcredo.com/cloudcredo-joins-the-cloud-foundry-foundation/">formation of the CF Foundation</a>. The Foundation members were well represented at CF Summit, from small innovators such as CloudCredo, to tech giants such as IBM and Cisco. It&rsquo;s fantastic to see the Cloud Foundry ecosystem crystallise as a Foundation to move the project forward.</p>
+
+<p>The noticeable trend amongst the Summit attendees was big businesses realising the importance of speed. Canopy are shining example of this; formed from large enterprises but able to quickly and effectively <a href="http://canopy-cloud.com/">make use of outstanding new technologies</a>. I fear for their competition; it&rsquo;s striking when organisations decisively deliver capability at this scale.</p>
+
+<p>We were overjoyed with the Summit from a CloudCredo perspective. The ecosystem&rsquo;s response to our work with them was fantastic. We are proud our work was mentioned in the following talks:</p>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=hy_huSXghI8">Ben Hale&rsquo;s Buildpack Talk</a></li>
+<li><a href="https://www.youtube.com/watch?v=eQhRl9GYGpQ">Warner Music</a></li>
+<li><a href="https://www.youtube.com/watch?v=YMNt6Gn3yaI">Canopy</a></li>
+<li><a href="https://www.youtube.com/watch?v=2e0XgGevKhg">Cisco</a></li>
+<li>James Bayer &ndash; Cloud Foundry Roadmap</li>
+<li>Tammer Saleh and Chris Brown &ndash; Cloud Foundry Data Services</li>
+<li><a href="https://www.youtube.com/watch?v=nmapwrs2M9c">Ferdy&rsquo;s BOSH/Docker talk</a></li>
+<li><a href="https://www.youtube.com/watch?v=IP0fpP_Nl4I">My Decker talk</a></li>
+</ul>
+
+
+<p>We&rsquo;d love to be able to add your organisation&rsquo;s name to that list. Please <a href="http://www.cloudcredo.com/contact-us/">get in contact</a> to talk about how we can help you deliver with Cloud Foundry.</p>
+
+<p><a href="https://www.youtube.com/watch?v=8CFESsXwntk">Christmas Garage!</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Twelve Blogs of Christmas]]></title>
@@ -22,7 +63,7 @@
 
 <h3>Twelve blogs, twelve days</h3>
 
-<p>I&rsquo;ve got a backlog of half-formed blog posts that have been hanging around, like bad smells, for a while. I&rsquo;ve decided to get them all done and out over Christmas. I&rsquo;m cheating by imposing the following restrictions:</p>
+<p>I&rsquo;ve got a backlog of half-formed blog posts (backblog?) that have been hanging around, like bad smells, for a while. I&rsquo;ve decided to get them all done and out over Christmas. I&rsquo;m cheating by imposing the following restrictions:</p>
 
 <ul>
 <li>This is the first blog and counts as a blog post even though it&rsquo;s a meta-post</li>
