@@ -10,7 +10,7 @@ categories:
 
 ###Twelve blogs, twelve days
 
-I've got a backlog of half-formed blog posts that have been hanging around, like bad smells, for a while. I've decided to get them all done and out over Christmas. I'm cheating by imposing the following restrictions:
+I've got a backlog of half-formed blog posts (backblog?) that have been hanging around, like bad smells, for a while. I've decided to get them all done and out over Christmas. I'm cheating by imposing the following restrictions:
 
 - This is the first blog and counts as a blog post even though it's a meta-post
 - I reserve the right to post days, or even weeks, late. I'm in [Sark](http://en.wikipedia.org/wiki/Sark) for some of Christmas and I will be burned alive in a [wicker man](http://en.wikipedia.org/wiki/The_Wicker_Man_%281973_film%29) if I'm seen using a laptop
