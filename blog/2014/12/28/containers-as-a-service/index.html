@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Automating Value - Hatofmonkeys</title>
+  <title>Containers as a Service - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular Cucumber. Despite this &hellip;">
+  <meta name="description" content="28th December, Blog #4 Containers as a Service At a simple level, Infrastructure-as-a-Service deals with virtual machines, Platform-as-a-Service &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Automating Value</h1>
+      <h1 class="entry-title">Containers as a Service</h1>
     
     
       <p class="meta">
@@ -96,62 +96,36 @@
   
 
 
-<time datetime="2011-11-06T13:26:00+00:00" pubdate data-updated="true">Nov 6<span>th</span>, 2011</time>
+<time datetime="2014-12-28T09:43:00+00:00" pubdate data-updated="true">Dec 28<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular <a href="http://cukes.info">Cucumber</a>. Despite this affection I’ve thought it a little unusual that BDD frameworks ignore/discard the business value proposition stated at the beginning of a feature. It’s always felt like we’re saying “that’s too difficult to do anything useful with, we’ll leave that to the business idiots”. With that in mind, and being a business idiot, I’m going to attempt to construct a model for value and automate the testing of business-based assertions.</p>
+<div class="entry-content"><h2>28th December, Blog #4</h2>
 
-<p>What I’m really trying to achieve is to extend the automated feedback cycle back into the business. The sooner the decision makers gain meaningful feedback about the impact of their decisions, the sooner they can start making useful decisions (and fewer useless ones).</p>
+<h2>Containers as a Service</h2>
 
-<p>I think this is where the devops camp needs to join forces with the <a href="http://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898">lean startup</a> people (*dev*ops*). I’m very interested in exploring if there’s any useful mileage in attempting to automate the <a href="http://en.wikipedia.org/wiki/PDCA">Deming Cycle</a>, and if there isn’t, to examine the reasons why.</p>
+<p>At a simple level, Infrastructure-as-a-Service deals with virtual machines, Platform-as-a-Service deals with applications, and Software-as-a-Service deals with users. I&rsquo;ve <a href="http://blog.docker.com/2014/07/dockercon-video/">spoken a few times</a> about Containers-as-a-Service(CaaS) &ndash; the idea that containers will become a new meaningful unit of currency in cloud computing. I&rsquo;ve also <a href="http://www.cloudcredo.com/pulling-paas-to-pieces/">written about the ramifications of CaaS for PaaS</a>.</p>
 
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/PDCA_Cycle.svg/400px-PDCA_Cycle.svg.png" alt="" /></p>
+<p>The hottest debate in the container ecosystem seems to be whether to use containers as single processes or multi-process virtual machines. The Docker folks seem to encourage the use of single process containers &ndash; a view I&rsquo;m supportive of, following principles from software development, such as single responsibility and inversion of control. The alternative approach is to use containers as virtual machines with many processes. The virtual machine approach seems to resonate well with the current generation of operating systems and configuration management tooling.</p>
 
-<p>Humans are great for the <strong>PLAN</strong> (hypothesise) phase, although I’ve heard and read some interesting thoughts around AI and entropy being used to automate this (Skynet++).</p>
+<p>I believe both approaches will continue to thrive for some time. The true value in Docker lies in the packaging and portability of containers, and this holds true whether you&rsquo;re packaging filesystems for a single process or a number of processes. Containers used as virtual machines will quickly erode the IaaS market &ndash; if only for their portability, speed, and density. Consumers and producers can gain benefits when choosing the CaaS abstraction over IaaS.</p>
 
-<p>Devops and the associated tooling are great for the <strong>DO</strong> phase, and the <a href="http://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912">Continuous Delivery bible</a> has had a massive impact here.</p>
+<p>Over time there will be a move towards per-process containers, away from virtual machine-like containers, as the deployment and orchestration benefits from this approach become clearer. Just as SOLID, and TDD took time to gain momentum in software development so the correct patterns for containers will gain traction over time.</p>
 
-<p><strong>CHECK</strong> is often currently left either to chance or abstracted via some BI monstrosity. This is where I feel we need we may benefit from exploring automating assertions on business value. Most companies I work with have some capabilities around business metrics, but they’re infrequently linked back to the planning/strategic capabilities.</p>
+<p>We will also see increasing numbers of customised operating systems, designed to run with the Linux kernel but providing a subset of the functionality, tuned for single-purpose containers. <a href="http://osv.io/">OSv</a> is a great example of this. I also think we&rsquo;re likely to see an increasing number of container host OSs, presenting something that looks like a Linux kernel to hosted containers, under development. The boundaries between hypervisor and namespaced kernel will blur.</p>
 
-<p>In theory an automated system can use some form of immunity metrics to roll back if the business assertions are not met, thus providing an element of automation around the <strong>ACT</strong> phase. I’ve seen a variety of immune systems employed around business metrics, however they often seem to be used as a tactical weapon rather than strategically to inform business decisions.</p>
+<p>The other main areas for innovation will be storage and networking. Providing containers with reliable storage for mutable state is challenging. The ClusterHQ folks have made great progress in this area using ZFS-on-Linux in <a href="https://github.com/clusterhq/flocker">Flocker</a>. There are also exciting developments in the networking space from <a href="http://socketplane.io/">SocketPlane</a> and <a href="https://github.com/zettio/weave">Weave</a> &ndash; simplifying multi-host container networking.</p>
 
-<p>There are clear issues with attempting any kind of valid implementation, the obvious ones being around gaining useful feedback on a value proposition. From what I’ve looked at so far, automating value raises far more questions than it answers, but if we don’t push the boundaries on automating the feedback cycle then I feel we’re just locally optimising. I’ve had some really useful input from the folks at <a href="http://www.opencredo.com/">OpenCredo</a>, who are thinking along similar (but better formulated) lines, now I’m trying to actually make this concrete.</p>
+<p>CaaS solutions have already emerged from the big cloud players; you can easily host containers on GCE, AWS, and Azure. <a href="http://www.rancher.io/">Rancher</a> looks to enable CaaS on any infrastructure. Pivotal&rsquo;s <a href="https://github.com/pivotal-cf-experimental/lattice">Lattice</a> enables operators to deliver their own CaaS, as does its big brother Cloud Foundry. These solutions are currently largely focused towards Docker but I&rsquo;m sure we&rsquo;ll see Rocket and alternatives emerge.</p>
 
-<p>At the moment I’m working on extending cucumber, specifically on <a href="https://github.com/cucumber/cucumber/wiki/Gherkin">“Lines 2-4 are unparsed text, which is expected to describe the business value of this feature”</a>. I’d like to change this, making the business value executable (and testable) so we can assert the business value is being delivered as promised.</p>
+<p>Whilst the future may look bright for containers, there are some warning signs. Multi-tenant container isolation and security are currently far from production ready. It also seems that choosing a layered filesystem beneath your containers can be a risky business; I&rsquo;ve been bitten by few bugs.</p>
 
-<p>I’d like to change this</p>
+<p>I think CaaS will grow exponentially over the next few years. <a href="https://www.tutum.co/">Tutum</a> are building the first pure CaaS I&rsquo;ve seen. They attracted $2.65M in seed funding this year. I&rsquo;m sure they&rsquo;ll have plenty of competition in the near future.</p>
 
-<pre><code>  Feature: Addition
-    In order to avoid silly mistakes
-    As a math idiot
-    I want to be told the sum of two numbers
-</code></pre>
-
-<p>To this</p>
-
-<pre><code>  Feature: Addition
-    In order to make 0 silly mistakes
-    As a math idiot
-    I want to be told the sum of two numbers
-</code></pre>
-
-<p>Or this</p>
-
-<pre><code>  Feature: Addition
-    In order to make fewer silly mistakes
-    As a math idiot
-    I want to be told the sum of two numbers
-</code></pre>
-
-<p>And I want to assert that delivering this feature ensures the relative/absolute quantity of silly mistakes.</p>
-
-<p>Attempting to write the code for this has made me realise how much time I&rsquo;ve wasted in meetings of late rather than making myself useful, so if you’d like to lend a hand on the implementation of these ideas, please get in contact. I’ll post on this blog when I get the proof of concept up on the <a href="https://github.com/hatofmonkeys">Githubs</a>.</p>
-
-<p><strong>UPDATE</strong> Cucumber-value has now been dragged kicking and screaming on to <a href="https://rubygems.org/gems/cucumber-value">Rubygems</a> and been inserted forcibly up those <a href="https://github.com/hatofmonkeys/cucumber-value">Githubs</a>.</p>
+<p><a href="https://www.youtube.com/watch?v=02KRAshCG0w">Christmas Garage!</a></p>
 </div>
 
 
@@ -174,7 +148,7 @@
   
 
 
-<time datetime="2011-11-06T13:26:00+00:00" pubdate data-updated="true">Nov 6<span>th</span>, 2011</time>
+<time datetime="2014-12-28T09:43:00+00:00" pubdate data-updated="true">Dec 28<span>th</span>, 2014</time>
       
 
 
@@ -193,10 +167,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2011/11/04/devops-days/" title="Previous Post: Devops Days">&laquo; Devops Days</a>
+        <a class="basic-alignment left" href="/blog/2014/12/27/the-heterogeneous-workforce/" title="Previous Post: The Heterogeneous Workforce">&laquo; The Heterogeneous Workforce</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2011/11/13/the-testing-pipeline/" title="Next Post: The Testing Pipeline">The Testing Pipeline &raquo;</a>
       
     </p>
   </footer>
@@ -303,8 +275,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2011/11/06/automating-value/';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service/';
         var disqus_script = 'embed.js';
       
     (function () {
