@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2014-12-28T10:42:50+00:00</updated>
+  <updated>2014-12-30T10:22:18+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PaaSaaP and the Distro Wars]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/"/>
+    <updated>2014-12-30T08:37:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars</id>
+    <content type="html"><![CDATA[<h2>30th December, Blog #6</h2>
+
+<h2>PaaSaaP and the Distro Wars</h2>
+
+<p><a href="https://twitter.com/swardley/status/527680598543187968">Cloud Foundry has won the PaaS war</a>. Heroku blazed the trail with their PaaS for <a href="http://12factor.net/">Twelve-Factor Apps</a>, and VMWare/Pivotal have built an open-source implementation and ecosystem to provide both enterprises and developers with an obvious choice. Buildpacks have become the standard for translation from application code to runnable unit.</p>
+
+<p>The question is rapidly changing from &ldquo;which PaaS are you using?&rdquo; to &ldquo;which distribution of Cloud Foundry are you using?&rdquo;. Just as Hadoop became synonymous with big data so Cloud Foundry has become PaaS. The emerging battle is between the distribution vendors; Pivotal, IBM, HP and ActiveState already have offerings in the market. I&rsquo;m sure we&rsquo;ll see more from other players as the <a href="http://www.cloudfoundry.org/about/index.html">Cloud Foundry Foundation</a> gains momentum.</p>
+
+<p>The other fascinating aspect of the development of the Cloud Foundry ecosystem is &lsquo;Platform as a Service&rsquo; versus &lsquo;Platform as a Service as a Product&rsquo;(PaaSaaP). Some vendors are offering Cloud Foundry as installable, supported software &ndash; where the onus is on the customer to deploy the software to their chosen infrastructure in order to provide a service. Other vendors are deploying and running Cloud Foundry on behalf of their uses to provide a true PaaS experience. A few vendors are offering both. Some PaaS purists have denigrated Cloud Foundry for offering this flexibility, but I see this as one of Cloud Foundry&rsquo;s greatest strengths. Developers can minimise Time-to-Value by deploying quickly to a vendor&rsquo;s cloud-based solution &ndash; and then deploy Cloud Foundry to their own infrastructure when non-functional requirements emerge to make a custom deployment necessary.</p>
+
+<p>We will also see domain-specific Cloud Foundy implementations for particular markets. The &lsquo;core&rsquo; Cloud Foundry specification, provided by the CF Foundation, will provide a key set of capabilities and an API for developers to work against &ndash; but we will see extensions providing for additional requirements and innovation. Time will tell which flavours of Cloud Foundry are successful and which are left behind.</p>
+
+<p><a href="https://www.youtube.com/watch?v=iWRSOtAKcMY">Christmas Garage!</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twelve Factor Enterprise]]></title>

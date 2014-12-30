@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="According to the principles behind the Agile Manifesto Our highest priority is to satisfy the customer through early and continuous delivery of &hellip;">
+  <meta name="description" content="RAMBLING BLOG POST ALERT Monitoring sucks. Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,107 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/15/monitoring-driven-operations/">Monitoring-Driven Operations</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-15T08:11:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>RAMBLING BLOG POST ALERT</strong></p>
+
+<p>Monitoring sucks.</p>
+
+<p>Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns such as <a href="http://continuousdelivery.com/">Continuous Delivery</a>, there might be some value in jumping head-first into the world of monitoring.</p>
+
+<p>I&rsquo;ve been <a href="http://www.eatliver.com/img/2005/638.jpg">evangelising</a> to anyone that will listen, and a lot of people that won&rsquo;t, about declarative/convergent frameworks for some time now. Sometimes you have to describe how to converge (definitions may not yet exist), so I particularly enjoy working with frameworks such as <a href="http://wiki.opscode.com/display/chef/Home">Chef</a> that enable you to easily move from declarative to imperative as the need arises.</p>
+
+<p>These two trains of thought(monitoring + system convergence) collided a while back to make me think about Monitoring-Driven Operations, i.e. that we can declare the status of the monitoring systems (that servers and services are available during expected hours) and converge the environment(s) on this desired state if there&rsquo;s a gap between observed and desired states. MDO for operations, TDD for developers.</p>
+
+<p>It turned out I <a href="http://dev.hubspot.com/bid/65871/Monitoring-Driven-DevOps">wasn&rsquo;t alone</a> in thinking about monitoring from this perspective.</p>
+
+<p>Reusing the application behaviours in production is a natural, logical extension of <a href="blog/2011/11/13/the-testing-pipeline/">the testing pipeline</a>. Were we able to ensure that the <a href="blog/2012/01/15/bridging-the-gap-between-functional-and-non-functional/">behaviours include non-functional requirements</a>, would it be possible to use these monitored behaviours to converge an environment towards a state that passes all scenarios?</p>
+
+<p>The missing link here is the imperative element. We can declare the desired state for an environment (<a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> is a good start), however we need a framework to express <em>how we get there</em>. I think Chef/Puppet can help with a lot of the hard labour here, but I don&rsquo;t think that either, in their current formats, are appropriate to converge a service from a failed monitoring check.</p>
+
+<p><a href="https://github.com/cloudfoundry/">Cloud Foundry</a>(brilliant) uses a health manager, message bus, and cloud controller interacting to accomplish something similar. In this situation the cloud controller knows how to converge the state of the environment when the health manager observes a disparity between observed and desired states.</p>
+
+<p>I&rsquo;m thinking about developing a system that works in the following way(&ldquo;<em>The Escalator</em>&rdquo;). Please get in contact if you&rsquo;ve got any feedback.</p>
+
+<ul>
+<li>Barry McDevops declares an escalation pattern for his environments. These are the <em>levels</em> of escalation for convergence that failing checks can be matched to. As a crude example:
+
+<ol>
+<li> Create account with IaaS provider</li>
+<li> Create core networking and support infrastructure</li>
+<li> Create tier networking and all VMs</li>
+<li> Create an individual VM</li>
+<li> Converge VM with Chef</li>
+<li> (Re)deploy application</li>
+</ol>
+</li>
+<li>Barry creates a series of monitoring <em>checks</em> for the non-functional requirements
+
+<ol>
+<li> IaaS provider is online</li>
+<li> (per node) ICMP ping reply</li>
+<li> (per node) app and DB services are online</li>
+<li> (per tier) app and DB services are online</li>
+<li> Smoke check of application</li>
+</ol>
+</li>
+<li>Barry maps each monitoring <em>check</em> to an escalation <em>level</em>
+
+<ul>
+<li>Check 1 => Level 1</li>
+<li>Check 2 => Level 4</li>
+<li>Check 3 => Level 5</li>
+<li>Check 4 => Level 3</li>
+<li>Check 5 => Level 6</li>
+</ul>
+</li>
+<li>Once engaged, the monitoring system will quiesce for 30 seconds, observe the highest level of required escalation, and then ask the escalation system to take that level of action (and all levels below it).</li>
+</ul>
+
+
+<p>As examples:
+&ndash; If there is nothing in place (failed IaaS provider or a new system) &ndash; an entire new environment is built from scratch (escalation steps 1 through 6).
+&ndash; If a node fails: a new node is built, converged, and deployed to (steps 4 through 6).
+&ndash; If the application fails the smoke test, the application is redeployed (step 6).</p>
+
+<p>Obviously it is up to Barry to ensure his escalation steps are sensible, i.e. use multiple IaaS providers, redeploy previous versions of applications if they persistently fail smoke tests. Each escalation step should declare a quiescence period, during which no further actions will be taken. There&rsquo;s no point attempting to deploy an application if you have no nodes.</p>
+
+<p>If an escalation process fails, the monitoring system could attempt a re-convergence if necessary or contact an administrator.</p>
+
+<p>This overlaps significantly with a couple of discussions: <a href="http://wiki.opscode.com/display/chef/Cluster+Orchestration">here</a> and <a href="http://wiki.opscode.com/display/chef/Management+of+External+Entitites">here</a> at the recent <a href="http://wiki.opscode.com/display/chef/Opscode+Community+Summit+1">Opscode Community Summit</a>, so perhaps someone else is already creating something similar with Chef.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -428,6 +529,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/30/paasaap-and-the-distro-wars/">PaaSaaP and the Distro Wars</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/12/29/twelve-factor-enterprise/">Twelve Factor Enterprise</a>
       </li>
     
@@ -441,10 +546,6 @@
     
       <li class="post">
         <a href="/blog/2014/12/26/cloud-foundry-summit-2014/">Cloud Foundry Summit 2014</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/25/the-twelve-blogs-of-christmas/">The Twelve Blogs of Christmas</a>
       </li>
     
   </ul>
