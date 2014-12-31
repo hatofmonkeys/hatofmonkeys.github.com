@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2014-12-30T10:22:18+00:00</updated>
+  <updated>2014-12-31T10:58:02+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Multi-Site Cloud Foundry]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/"/>
+    <updated>2014-12-31T10:20:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry</id>
+    <content type="html"><![CDATA[<h2>31st December, Blog #7</h2>
+
+<h2>Multi-Site Cloud Foundry</h2>
+
+<p><a href="https://www.cloudcredo.com">CloudCredo&rsquo;s</a> clients often ask about how to run Cloud Foundry across multiple sites for performance and resilience. This is a natural question to ask: as an application developer, if I specify that I need to have ten instances of my application available, I expect ten instances to be available &ndash; whether the underlying infrastructure is available or not. The Platform-as-a-Service(PaaS) abstraction implies that my application should continue to run as desired, and that the PaaS should be designed to handle failures in the infrastructure layer.</p>
+
+<h3>Choosing a CAP</h3>
+
+<p>This idea sounds great in theory but can lead to some problems in practice. What should Cloud Foundry do, as a distributed system, in the event of a network partition? Should each partition converge on the desired state of the whole system, leading to twice the number of applications being online, and potential split-brain issues with singleton applications? Should the whole Cloud Foundry shut down to ensure application consistency? The key point to note here, which is not immediately obvious, is that whilst Cloud Foundry hosts <em>stateless</em> applications, it is actually a <em>stateful</em> system itself. This means <a href="http://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> must be obeyed; we can opt for consistency or availability in our Cloud Foundry deployment.</p>
+
+<p>Cloud Foundry has, at its core, a Cloud Controller database maintaining the desired state of the system. If we maintain a single, consistent state of this database we will be running a CP(consistent, partition-tolerant) Cloud Foundry. If we allow multiple, divergent copies of this database we will be running an AP(available, partition-tolerant) Cloud Foundry.</p>
+
+<h3>Consistent Cloud Foundry</h3>
+
+<p>Cloud Foundry&rsquo;s current engineering direction seems to favour a consistent view of the desired application state. This is exhibited by the choice of <a href="http://en.wikipedia.org/wiki/Raft_%28computer_science%29">Raft</a> as a consensus algorithm, and <a href="https://github.com/coreos/etcd">Etcd</a> as an implementation, for CF&rsquo;s next generation <a href="https://github.com/cloudfoundry-incubator/diego-release">Diego</a> components. These choices pose some difficult questions:</p>
+
+<ul>
+<li>Do we suffer thundering herd issues in the event of a network partition, where all desired instances of all applications attempt to run on the nodes with access to the quorate Etcd partition?</li>
+<li>How do we ensure data services, required by the applications, are accessible from the functioning side of a partition?</li>
+<li>How do we ensure latency to data services from across multiple sites does not reduce application performance below acceptable levels?</li>
+<li>What happens if the Cloud Foundry components themselves experience issues, degrading the service as a whole across all sites?</li>
+</ul>
+
+
+<p>Running a consistent Cloud Foundry makes application deployment and management very easy; there is a single API endpoint for management. At CloudCredo we deploy consistent Cloud Foundry installations across multiple availability zones within a single region. This mitigates the latency concerns and provides a convenient management structure for application deployment.</p>
+
+<h3>Available Cloud Foundry</h3>
+
+<p>When I&rsquo;ve needed to deploy Cloud Foundry across multiple regions it has usually been to provide for a very high availability service level. To provide for this I have deployed multiple, completely separate Cloud Foundry installations, often on heterogeneous infrastructure providers, in diverse regions. An example of this kind of installation would be the <a href="http://blog.cloudfoundry.org/2013/04/30/uk-charity-raises-record-donations-powered-by-cloud-foundry/">donations platform for Comic Relief</a>. The huge benefit of this strategy is that no outages in any individual Cloud Foundry can stop the service &ndash; availability is maximised. The two major downsides are that deployment and orchestration of applications becomes significantly more complex, and that the applications and data services need to be developed to handle being deployed in a distributed system of this nature.</p>
+
+<h3>The Perfect Cloud Foundry?</h3>
+
+<p>I&rsquo;m currently deploying multi-zone &lsquo;consistent CF&rsquo; &ndash; and then multi-region &lsquo;available CF&rsquo; if requirements demand it. This is a domain specific choice; and it takes a significant amount of work in the application(particularly around state) to bring multi-region availability.</p>
+
+<p><a href="https://www.youtube.com/watch?v=RQLQ7W2RoKA">Christmas Garage!</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PaaSaaP and the Distro Wars]]></title>

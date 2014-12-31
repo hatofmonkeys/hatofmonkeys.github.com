@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="RAMBLING BLOG POST ALERT Monitoring sucks. Following the &ldquo;if it hurts, do it more often&rdquo; mantra that has driven the success of patterns &hellip;">
+  <meta name="description" content="I&rsquo;ve been on the receiving end of build reproducibility rants from developers at plenty of conferences. Their bile is usually aimed at Maven& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/01/15/system-build-reproducibility/">System Build Reproducibility</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-01-15T09:59:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been on the receiving end of build reproducibility rants from <a href="http://www.freakingnews.com/pictures/34500/Cyclops-Teletubbies-34621.jpg">developers</a> at plenty of conferences. Their bile is usually aimed at <a href="http://maven.apache.org/general.html#snapshot-artifacts">Maven&rsquo;s snapshot functionality</a>. I&rsquo;ve often questioned how reproducible their systems are; I&rsquo;m usually met by a blank look.</p>
+
+<p>I&rsquo;ve always aimed to make system builds reproducible, but with little success. Gem, pear, pecl, rpm, license agreements, configure/make/make install: they all take their toll. This can lead to inconsistent builds between environments &ndash; or even in a single tier &ndash; due to scaling up/down.</p>
+
+<p>As I&rsquo;ve tended to use RPM-based systems (<a href="http://www.redhat.com/certification/rhca/">misspent youth</a>), I&rsquo;ve attempted, wherever possible, to get all non-configuration files on a server into RPMs. I&rsquo;ve been more promiscuous with configuration management, moving from home grown, to <a href="http://cfengine.com/">Cfengine</a>, via <a href="http://puppetlabs.com/">Puppet</a>, to <a href="http://www.opscode.com/chef/">Chef</a>. I&rsquo;m currently using chef-solo, with tooling such as <a href="https://github.com/lusis/Noah">Noah</a> and <a href="http://puppetlabs.com/mcollective/">MCollective</a> for orchestration. Don&rsquo;t even mention the number of deployment/ALM tooling solutions I&rsquo;ve been through(although <a href="https://github.com/capistrano/capistrano/wiki">Capistrano</a> has never annoyed me to any great extent).</p>
+
+<p>Even with long term usage of RPMs, build reproducibility has been far from simple. <a href="http://www.redhat.com/red_hat_network/">RH Satellite</a>/<a href="http://spacewalk.redhat.com/">Spacewalk</a> should make this easy, but unfortunately it&rsquo;s a bloated mess. I&rsquo;ve usually resorted to simple apache/createrepo, but this poses its own problems. Do you have a repo per environment? How do you track which servers were built against which repo? How do you roll out updates in a manageable fashion?</p>
+
+<p>I&rsquo;ve created a simple setup called <a href="https://github.com/hatofmonkeys/yumtags">Yumtags!</a> to address some of these issues. The basic idea is that you can drop RPMs in to a directory, and then &ldquo;freeze&rdquo; the directory at that point in time by creating and storing repository metadata against a tag. This tag can then be used, perhaps in a chef-solo-driven repository definition, to update, build, and reproduce systems in a known state. It currently features simple JSON-driven integration for CI systems, so RPM-based integration pipelines can be easily automated. There&rsquo;s a million and one things missing from it, but now it does the basic story I&rsquo;ve shared it for others to hack on.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -529,6 +573,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/31/multi-site-cloud-foundry/">Multi-Site Cloud Foundry</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/12/30/paasaap-and-the-distro-wars/">PaaSaaP and the Distro Wars</a>
       </li>
     
@@ -542,10 +590,6 @@
     
       <li class="post">
         <a href="/blog/2014/12/27/the-heterogeneous-workforce/">The Heterogeneous Workforce</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/26/cloud-foundry-summit-2014/">Cloud Foundry Summit 2014</a>
       </li>
     
   </ul>
