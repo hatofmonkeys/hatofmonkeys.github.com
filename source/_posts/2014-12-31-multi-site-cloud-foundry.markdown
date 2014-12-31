@@ -10,7 +10,7 @@ categories:
 
 ##Multi-Site Cloud Foundry
 
-[CloudCredo's](https://www.cloudcredo.com) clients often ask about how to run Cloud Foundry across multiple sites for performance and resilience. This is a natural question to ask: as an application developer, if I specify that I need to have ten instances of my application available, I expect ten instances to be available - whether the underlying infrastructure is available or not. The Platform-as-a-Service(PaaS) abstraction implies that my application should continue to run as desired, and that the PaaS should be designed to handle failures in the infrastructure layer.
+[CloudCredo's](http://www.cloudcredo.com/) clients often ask about how to run Cloud Foundry across multiple sites for performance and resilience. This is a natural question to ask: as an application developer, if I specify that I need to have ten instances of my application available, I expect ten instances to be available - whether the underlying infrastructure is available or not. The Platform-as-a-Service(PaaS) abstraction implies that my application should continue to run as desired, and that the PaaS should be designed to handle failures in the infrastructure layer.
 
 ###Choosing a CAP
 
