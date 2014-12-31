@@ -27,3 +27,14 @@ I've noticed the vast majority of my traffic is from the USA. As part of my sing
 [Bo selecta!](https://www.youtube.com/watch?v=vEtWdI9FByA)
 
 Let the blogging commence!
+
+###Articles
+
+1. [The Twelve Blogs of Christmas](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
+2. [Cloud Foundry Summit 2014](http://blog.hatofmonkeys.com/blog/2014/12/26/cloud-foundry-summit-2014/)
+3. [The Heterogeneous Workforce](http://blog.hatofmonkeys.com/blog/2014/12/27/the-heterogeneous-workforce/)
+4. [Containers as a Service](http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service/)
+5. [Twelve Factor Enterprise](http://blog.hatofmonkeys.com/blog/2014/12/29/twelve-factor-enterprise/)
+6. [PaaSaaP and the Distro Wars](http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/)
+7. [Multi-Site Cloud Foundry](http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/)
+
