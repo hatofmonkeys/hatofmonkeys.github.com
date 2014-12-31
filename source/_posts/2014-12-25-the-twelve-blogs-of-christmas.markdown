@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-##25th December, Blog #1
+##[25th December, Blog #1](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 ###Twelve blogs, twelve days
 

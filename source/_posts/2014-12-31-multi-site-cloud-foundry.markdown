@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-##31st December, Blog #7
+##[31st December, Blog #7](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 ##Multi-Site Cloud Foundry
 

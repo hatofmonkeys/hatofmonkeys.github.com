@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-##27th December, Blog #3
+##[27th December, Blog #3](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 ##The Heterogeneous Workforce
 

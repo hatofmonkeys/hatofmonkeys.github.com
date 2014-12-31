@@ -5,7 +5,7 @@ date: 2014-12-28 09:43
 comments: true
 categories: 
 ---
-##28th December, Blog #4
+##[28th December, Blog #4](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 ##Containers as a Service
 

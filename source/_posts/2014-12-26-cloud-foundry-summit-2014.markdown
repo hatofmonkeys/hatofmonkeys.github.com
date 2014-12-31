@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-##26th December, Blog #2
+##[26th December, Blog #2](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 I wrote this blog back in June but didn't have time to publish it. No time like the present.
 

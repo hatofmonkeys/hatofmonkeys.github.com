@@ -5,7 +5,7 @@ date: 2014-12-30 08:37
 comments: true
 categories: 
 ---
-##30th December, Blog #6
+##[30th December, Blog #6](http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/)
 
 ##PaaSaaP and the Distro Wars
 
