@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2014-12-31T11:13:27+00:00</updated>
+  <updated>2014-12-31T17:03:17+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -18,7 +18,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/"/>
     <updated>2014-12-31T10:20:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry</id>
-    <content type="html"><![CDATA[<h2>31st December, Blog #7</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">31st December, Blog #7</a></h2>
 
 <h2>Multi-Site Cloud Foundry</h2>
 
@@ -61,7 +61,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/"/>
     <updated>2014-12-30T08:37:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars</id>
-    <content type="html"><![CDATA[<h2>30th December, Blog #6</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">30th December, Blog #6</a></h2>
 
 <h2>PaaSaaP and the Distro Wars</h2>
 
@@ -82,7 +82,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/29/twelve-factor-enterprise/"/>
     <updated>2014-12-29T10:16:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/29/twelve-factor-enterprise</id>
-    <content type="html"><![CDATA[<h2>29th December, Blog #5</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">29th December, Blog #5</a></h2>
 
 <h2>Twelve Factor Enterprise</h2>
 
@@ -103,7 +103,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service/"/>
     <updated>2014-12-28T09:43:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/28/containers-as-a-service</id>
-    <content type="html"><![CDATA[<h2>28th December, Blog #4</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">28th December, Blog #4</a></h2>
 
 <h2>Containers as a Service</h2>
 
@@ -134,7 +134,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/27/the-heterogeneous-workforce/"/>
     <updated>2014-12-27T10:20:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/27/the-heterogeneous-workforce</id>
-    <content type="html"><![CDATA[<h2>27th December, Blog #3</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">27th December, Blog #3</a></h2>
 
 <h2>The Heterogeneous Workforce</h2>
 
@@ -153,7 +153,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/26/cloud-foundry-summit-2014/"/>
     <updated>2014-12-26T08:39:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/26/cloud-foundry-summit-2014</id>
-    <content type="html"><![CDATA[<h2>26th December, Blog #2</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">26th December, Blog #2</a></h2>
 
 <p>I wrote this blog back in June but didn&rsquo;t have time to publish it. No time like the present.</p>
 
@@ -194,7 +194,7 @@
     <link href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/"/>
     <updated>2014-12-25T12:19:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas</id>
-    <content type="html"><![CDATA[<h2>25th December, Blog #1</h2>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">25th December, Blog #1</a></h2>
 
 <h3>Twelve blogs, twelve days</h3>
 
