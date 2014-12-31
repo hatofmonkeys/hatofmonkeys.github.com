@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2014-12-31T17:03:17+00:00</updated>
+  <updated>2014-12-31T17:35:28+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -22,7 +22,7 @@
 
 <h2>Multi-Site Cloud Foundry</h2>
 
-<p><a href="https://www.cloudcredo.com">CloudCredo&rsquo;s</a> clients often ask about how to run Cloud Foundry across multiple sites for performance and resilience. This is a natural question to ask: as an application developer, if I specify that I need to have ten instances of my application available, I expect ten instances to be available &ndash; whether the underlying infrastructure is available or not. The Platform-as-a-Service(PaaS) abstraction implies that my application should continue to run as desired, and that the PaaS should be designed to handle failures in the infrastructure layer.</p>
+<p><a href="http://www.cloudcredo.com/">CloudCredo&rsquo;s</a> clients often ask about how to run Cloud Foundry across multiple sites for performance and resilience. This is a natural question to ask: as an application developer, if I specify that I need to have ten instances of my application available, I expect ten instances to be available &ndash; whether the underlying infrastructure is available or not. The Platform-as-a-Service(PaaS) abstraction implies that my application should continue to run as desired, and that the PaaS should be designed to handle failures in the infrastructure layer.</p>
 
 <h3>Choosing a CAP</h3>
 
