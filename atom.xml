@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-01T13:31:19+00:00</updated>
+  <updated>2015-01-01T13:33:49+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -278,6 +278,7 @@
 <li><a href="http://blog.hatofmonkeys.com/blog/2014/12/29/twelve-factor-enterprise/">Twelve Factor Enterprise</a></li>
 <li><a href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/">PaaSaaP and the Distro Wars</a></li>
 <li><a href="http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/">Multi-Site Cloud Foundry</a></li>
+<li><a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">Mutable State</a></li>
 </ol>
 
 ]]></content>
