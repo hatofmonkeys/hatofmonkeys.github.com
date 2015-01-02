@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="1st January, Blog #8 Mutable State I enjoy attending developer-focused conferences &ndash; in particular QCon and GOTO &ndash; to talk to the real &hellip;">
+  <meta name="description" content="2nd January, Blog #9 Service Foundry As I&rsquo;ve mentioned a few times, Cloud Foundry has won the Platform-as-a-Service(PaaS) war for stateless 12- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/02/service-foundry/">Service Foundry</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-02T10:58:00+00:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">2nd January, Blog #9</a></h2>
+
+<h2>Service Foundry</h2>
+
+<p>As I&rsquo;ve mentioned a few times, <a href="https://twitter.com/swardley/status/527680598543187968">Cloud Foundry has won the Platform-as-a-Service(PaaS) war for stateless 12-Factor applications</a>. <a href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/">Stateless PaaS will now be a Cloud Foundry distro war</a>. <a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">We all know mutable state is the root of all evil</a> so I&rsquo;ve been thinking about a stateful CF-like PaaS since I first interacted with Cloud Foundry. In fact, Cloud Foundry version 1 had an <em>interesting</em> service integration, which served to highlight the gaps in the PaaS journey for stateful application developers. <a href="https://twitter.com/hatofmonkeys/status/511856493512392704">I tweeted a while back</a> about some of the work <a href="http://www.cloudcredo.com/">we&rsquo;re</a> doing in this area; this post will expand on our plans for &lsquo;Service Foundry&rsquo; &ndash; a PaaS for stateful deployments.</p>
+
+<h3>Implementation</h3>
+
+<ul>
+<li><a href="http://blog.hatofmonkeys.com/blog/2014/12/03/docker/">Docker/Rocket</a> for application packaging</li>
+<li><a href="https://github.com/cloudfoundry-incubator/diego-release">Diego</a> with mutexs for scheduling</li>
+<li><a href="https://github.com/zettio/weave">Weave</a> to provide inter-container networking of clustered state</li>
+<li><a href="https://github.com/clusterhq/flocker">Flocker</a> for state relocation/replication</li>
+<li><a href="https://github.com/CloudCredo/bosh-ipsec">BOSH-IPSEC</a> for security of data in-flight</li>
+<li>HAProxy or custom Go router for non-HTTP routing</li>
+<li>Tunable sync/non-sync disk IO</li>
+<li>Expose STONITH semantics to users</li>
+<li>CF-like API for management</li>
+<li>TBC: <a href="https://github.com/CloudCredo/kubernetes-release">Kubernetes</a> for clusters(pods) of containers</li>
+</ul>
+
+
+<h3>Potential</h3>
+
+<p>It&rsquo;s interesting to consider that you could deploy Cloud Foundry itself in such a system. Does this actually look like a manifesto for BOSH version 2? Or does this look more like <a href="https://github.com/openshift/origin">OpenShift v3</a>? The Kubernetes overlap certainly suggests something similar to <a href="https://blog.openshift.com/announcing-openshift-origin-3/">RedHat&rsquo;s latest IaaS+ effort</a>.</p>
+
+<h3>Why is this useful to users?</h3>
+
+<p>I&rsquo;ve given talks suggesting that <a href="http://gotocon.com/berlin-2014/presentation/Simple%20Scalability%20-%20Microservices%20on%20PaaS">microservices and PaaS are the future of application development</a>. Cloud Foundry makes it <a href="http://martinfowler.com/bliki/MicroservicePrerequisites.html">incredibly easy to be tall enough for stateless microservices</a>. I want users to have a similarly easy journey for the state powering their microservices.</p>
+
+<p>If you&rsquo;d like to help with this effort please do get in contact with <a href="http://www.cloudcredo.com/contact-us/">CloudCredo</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -617,79 +683,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/15/configuration-management-isnt-stupid/">Configuration Management isn&#8217;t Stupid, but it Should Be</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-15T10:37:00+00:00" pubdate data-updated="true">Mar 15<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Devops is about holistic, systems-orientated thinking; it&rsquo;s been misappropriated to be about configuration management. I&rsquo;ve noticed a decline in the number of people from a development background at Devops conferences &ndash; maybe they&rsquo;ve lost interest in talking about Puppet vs Chef vs Salt vs Ansible vs CFEngine vs X vs Y vs Z?</p>
-
-<h3>Bricks</h3>
-
-<p>The role of infrastructure should be to provide reliable, consumable bricks to enable innovation at higher levels. If we create beautiful, unique, novel bricks it becomes impossible to build houses. This is a problem I see regularly with OpenStack deployments; they&rsquo;re amazing, wonderful, unique, organic. I cannot, however, easily deploy platforms to them.</p>
-
-<h3>Configuration Management</h3>
-
-<p>This issue manifests itself in deployments orchestrated by configuration management.</p>
-
-<ul>
-<li>Complexity &ndash; you can do some amazing things in Chef as you have the power and flexibility to run arbitrary Ruby during your deployments. I have seen this abused many times &ndash; and done this myself. Too much clever branching logic and too little reliable code</li>
-<li>Determinism &ndash; configuration management tools often provide a thin veneer over non-deterministic operating system commands</li>
-<li>Reproducibility &ndash; server scaling operations often fail due to poor dependency management and non-deterministic actions</li>
-</ul>
-
-
-<p>Configuration management is too focused on innovation at the server level rather than thinking about the entire system. Devops has become a silo.</p>
-
-<h3>A Better Way</h3>
-
-<p>There are some tools and patterns emerging to tackle these problems.</p>
-
-<ul>
-<li><a href="http://foodfightshow.org/2013/07/immutable-infrastructure.html">Immutable infrastructure</a> &ndash; remove the drift</li>
-<li><a href="https://www.docker.io/">Docker</a>/<a href="https://www.youtube.com/watch?v=QslNszh3jfY">Decker</a> &ndash; testable, simple, small, disposable containers</li>
-<li><a href="http://nixos.org/nix/">Nix</a> &ndash; declarative, deterministic package management</li>
-<li><a href="https://github.com/cloudius-systems/osv">OSV</a> &ndash; stupid(brilliant) operating system to enable innovation</li>
-<li><a href="http://bosh.cfapps.io/">BOSH</a> &ndash; stupid(brilliant) tool to deploy complex distributed systems</li>
-<li><a href="http://mesos.apache.org/">Mesos</a> &ndash; schedule commands(jobs) to run in a distributed environment</li>
-</ul>
-
-
-<h3>&lsquo;Infrastructure as Code&rsquo; to &lsquo;Infrastructure as Good Code&rsquo;</h3>
-
-<p>We need <a href="http://www.codeproject.com/Articles/60845/The-S-O-L-I-D-Object-Oriented-Programming-OOP-Prin">SOLID</a> for infrastructure. We need to develop standardised, commoditised, loosely coupled, single-responsibility components from which we can build higher-order systems and services. Only then will we be enabling innovation higher up the value chain.</p>
-
-<p>Devops should be about enabling the business to deliver effectively. We&rsquo;ve got stuck up our own <del>arses</del> configuration management.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -705,6 +698,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/02/service-foundry/">Service Foundry</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/01/mutable-state/">Mutable State</a>
       </li>
     
@@ -718,10 +715,6 @@
     
       <li class="post">
         <a href="/blog/2014/12/29/twelve-factor-enterprise/">Twelve Factor Enterprise</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/12/28/containers-as-a-service/">Containers as a Service</a>
       </li>
     
   </ul>

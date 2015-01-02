@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-01T13:33:49+00:00</updated>
+  <updated>2015-01-02T12:08:04+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Service Foundry]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/"/>
+    <updated>2015-01-02T10:58:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry</id>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">2nd January, Blog #9</a></h2>
+
+<h2>Service Foundry</h2>
+
+<p>As I&rsquo;ve mentioned a few times, <a href="https://twitter.com/swardley/status/527680598543187968">Cloud Foundry has won the Platform-as-a-Service(PaaS) war for stateless 12-Factor applications</a>. <a href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/">Stateless PaaS will now be a Cloud Foundry distro war</a>. <a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">We all know mutable state is the root of all evil</a> so I&rsquo;ve been thinking about a stateful CF-like PaaS since I first interacted with Cloud Foundry. In fact, Cloud Foundry version 1 had an <em>interesting</em> service integration, which served to highlight the gaps in the PaaS journey for stateful application developers. <a href="https://twitter.com/hatofmonkeys/status/511856493512392704">I tweeted a while back</a> about some of the work <a href="http://www.cloudcredo.com/">we&rsquo;re</a> doing in this area; this post will expand on our plans for &lsquo;Service Foundry&rsquo; &ndash; a PaaS for stateful deployments.</p>
+
+<h3>Implementation</h3>
+
+<ul>
+<li><a href="http://blog.hatofmonkeys.com/blog/2014/12/03/docker/">Docker/Rocket</a> for application packaging</li>
+<li><a href="https://github.com/cloudfoundry-incubator/diego-release">Diego</a> with mutexs for scheduling</li>
+<li><a href="https://github.com/zettio/weave">Weave</a> to provide inter-container networking of clustered state</li>
+<li><a href="https://github.com/clusterhq/flocker">Flocker</a> for state relocation/replication</li>
+<li><a href="https://github.com/CloudCredo/bosh-ipsec">BOSH-IPSEC</a> for security of data in-flight</li>
+<li>HAProxy or custom Go router for non-HTTP routing</li>
+<li>Tunable sync/non-sync disk IO</li>
+<li>Expose STONITH semantics to users</li>
+<li>CF-like API for management</li>
+<li>TBC: <a href="https://github.com/CloudCredo/kubernetes-release">Kubernetes</a> for clusters(pods) of containers</li>
+</ul>
+
+
+<h3>Potential</h3>
+
+<p>It&rsquo;s interesting to consider that you could deploy Cloud Foundry itself in such a system. Does this actually look like a manifesto for BOSH version 2? Or does this look more like <a href="https://github.com/openshift/origin">OpenShift v3</a>? The Kubernetes overlap certainly suggests something similar to <a href="https://blog.openshift.com/announcing-openshift-origin-3/">RedHat&rsquo;s latest IaaS+ effort</a>.</p>
+
+<h3>Why is this useful to users?</h3>
+
+<p>I&rsquo;ve given talks suggesting that <a href="http://gotocon.com/berlin-2014/presentation/Simple%20Scalability%20-%20Microservices%20on%20PaaS">microservices and PaaS are the future of application development</a>. Cloud Foundry makes it <a href="http://martinfowler.com/bliki/MicroservicePrerequisites.html">incredibly easy to be tall enough for stateless microservices</a>. I want users to have a similarly easy journey for the state powering their microservices.</p>
+
+<p>If you&rsquo;d like to help with this effort please do get in contact with <a href="http://www.cloudcredo.com/contact-us/">CloudCredo</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mutable State]]></title>
