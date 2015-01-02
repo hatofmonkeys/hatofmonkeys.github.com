@@ -35,3 +35,5 @@ It's interesting to consider that you could deploy Cloud Foundry itself in such 
 I've given talks suggesting that [microservices and PaaS are the future of application development](http://gotocon.com/berlin-2014/presentation/Simple%20Scalability%20-%20Microservices%20on%20PaaS). Cloud Foundry makes it [incredibly easy to be tall enough for stateless microservices](http://martinfowler.com/bliki/MicroservicePrerequisites.html). I want users to have a similarly easy journey for the state powering their microservices.
 
 If you'd like to help with this effort please do get in contact with [CloudCredo](http://www.cloudcredo.com/contact-us/).
+
+[Christmas Garage!](https://www.youtube.com/watch?v=9yGT8QzVzKU)
