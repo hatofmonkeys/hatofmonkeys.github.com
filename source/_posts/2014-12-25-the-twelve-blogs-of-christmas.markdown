@@ -38,3 +38,4 @@ Let the blogging commence!
 6. [PaaSaaP and the Distro Wars](http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/)
 7. [Multi-Site Cloud Foundry](http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/)
 8. [Mutable State](http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/)
+9. [Service Foundry](http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/)
