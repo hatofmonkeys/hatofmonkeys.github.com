@@ -39,3 +39,4 @@ Let the blogging commence!
 7. [Multi-Site Cloud Foundry](http://blog.hatofmonkeys.com/blog/2014/12/31/multi-site-cloud-foundry/)
 8. [Mutable State](http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/)
 9. [Service Foundry](http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/)
+10. [The Problems With PaaS](http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/)
