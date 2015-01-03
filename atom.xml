@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-03T13:03:48+00:00</updated>
+  <updated>2015-01-03T13:08:53+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -19,6 +19,8 @@
     <updated>2015-01-03T07:59:00+00:00</updated>
     <id>http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas</id>
     <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">3rd January, Blog #10</a></h2>
+
+<h2>The Problems With PaaS</h2>
 
 <p>Platform-as-a-Service(PaaS) isn&rsquo;t perfect. There are always going to be some things it does well and some things it does badly. This post takes a look at some of the things it does badly, and how we can make improvements in the future.</p>
 
