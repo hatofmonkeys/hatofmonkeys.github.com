@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-02T12:32:42+00:00</updated>
+  <updated>2015-01-03T13:00:53+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Problems With PaaS]]></title>
+    <link href="http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/"/>
+    <updated>2015-01-03T07:59:00+00:00</updated>
+    <id>http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas</id>
+    <content type="html"><![CDATA[<h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">3rd January, Blog #10</a></h2>
+
+<p>Platform-as-a-Service(PaaS) isn&rsquo;t perfect. There are always going to be some things it does well and some things it does badly. This post takes a look at some of the things it does badly, and how we can make improvements in the future.</p>
+
+<h3>Stateful services</h3>
+
+<p><a href="http://compositecode.com/2013/07/27/architectural-paas-cracks-or-crack-paas/">This excellent article</a> highlights some key points related to problems with PaaS. I absolutely agree that the data service journey with current implementations is painful. I&rsquo;ve written about <a href="http://www.cloudcredo.com/">CloudCredo&rsquo;s</a> plans for <a href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/">&ldquo;Service Foundry&rdquo;</a>; this is work-in-progress and needs to be an area of greater focus. Stateful services need to become first-class citizens in the PaaS landscape.</p>
+
+<h3>Maintenance troubles</h3>
+
+<p>I also agree that maintaining PaaSs is currently too difficult. I think this is a symptom of two separate issues. Firstly, the current crop of configuration management tools (Chef/Puppet/Salt/Ansible etc.) are not fit for the purpose of deploying and maintaining distributed systems, such as PaaSs. Secondly, <a href="http://bosh.cfapps.io/">BOSH</a> is the right tool for the job but currently has a difficult user journey. <a href="http://www.cloudcredo.com/">CloudCredo</a> have invested time and effort attempting to make BOSH easier to consume &ndash; but again it&rsquo;s another work-in-progress. We need to get better at making PaaSs easier to operate, maintain, and upgrade.</p>
+
+<h3>Secure networking</h3>
+
+<p><a href="https://medium.com/p/817849715f0a">Another good blog post</a> highlights how networking concerns can block PaaS adoption. Since the writing of that post a couple of advancements have been made. There is now an <a href="https://github.com/CloudCredo/bosh-ipsec">easily consumable BOSH release to enable encrypted network traffic of any BOSH-deployed service</a> &ndash; <a href="http://www.spiegel.de/media/media-35515.pdf">although we should always question how secure our encryption is</a>. There is also <a href="http://docs.cloudfoundry.org/concepts/security.html">user-configurable networking inside Cloud Foundry</a>. I believe these additions go a long way towards mitigating user concerns, but I&rsquo;d certainly be interested in further feedback related to PaaS networking.</p>
+
+<h3>Transparency</h3>
+
+<p>The greatest strength of PaaS is that it&rsquo;s a black box for running your applications; it allows developers to focus on delivering value rather than operating a platform. The greatest weakness of PaaS is that it&rsquo;s a black box for running your applications; when things go wrong it can be difficult to work out what&rsquo;s happening. If you application is performing poorly on Heroku, what do you do next? Spend more money and hope? <a href="http://www.cloudcredo.com/cloud-foundry-firehose-and-friends/">Cloud Foundry&rsquo;s new Firehose</a> generates huge volumes of information but can prove difficult to consume for PaaS novices. <a href="http://blog.newrelic.com/2014/10/27/cloud-foundry-java-buildpack-new-relic-2/">Buildpack integration with monitoring systems</a> is clearly helpful but we could still make enhancements in this area.</p>
+
+<h3>Let&rsquo;s keep PaaS-bashing</h3>
+
+<p>PaaS will only improve if we identify and expose the flaws. We need more users, more critiques, more real-world scenarios. Please <a href="http://www.cloudcredo.com/">get in contact</a> if there&rsquo;s any burning issues blocking your adoption of PaaS.</p>
+
+<p><a href="https://www.youtube.com/watch?v=L3HMogp86cI">Christmas Garage: London &ndash; Stand Up Tall!</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Service Foundry]]></title>
@@ -693,15 +726,6 @@
 <p>Devops&rsquo;s achilles heel is the potential it has for being introspective(ignore the ITIL/process arguments; absolute nonsense) and purely tooling focused. Changing the THEM and US attitude from dev vs ops to devops vs <a href="http://www.youtube.com/watch?v=3CiGUMQZUgU">THE MANAGEMENT</a> just shifts the issue. Patrick Debois brilliantly summarises that we should, instead, be thinking about <a href="http://www.slideshare.net/jedi4ever/devopsdays-downundervfinal">*dev*ops*</a>; unfortunately some of the devops people I&rsquo;ve met seem to be more interested in teaming up against others than including them.</p>
 
 <p>I&rsquo;m taking a look at how I think we can address this problem, by perhaps changing the focus from &ldquo;delivering&rdquo; to &ldquo;delivering value&rdquo;. Coming from a devops background, I&rsquo;m obviously going to create a tool to help me. That should teach those management types a lesson.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Blogging With Octopress]]></title>
-    <link href="http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress/"/>
-    <updated>2011-10-25T23:21:00+01:00</updated>
-    <id>http://blog.hatofmonkeys.com/blog/2011/10/25/blogging-with-octopress</id>
-    <content type="html"><![CDATA[<p><a href="http://www.tumblr.com">Tumblr</a> seemed like an inappropriate place for my epic rants, so I&rsquo;m giving <a href="http://octopress.org/">Octopress</a> a go. Like the cool kids do.</p>
 ]]></content>
   </entry>
   

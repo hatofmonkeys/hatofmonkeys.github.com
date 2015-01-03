@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Service Foundry - Hatofmonkeys</title>
+  <title>The Problems With PaaS - Hatofmonkeys</title>
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="2nd January, Blog #9 Service Foundry As I&rsquo;ve mentioned a few times, Cloud Foundry has won the Platform-as-a-Service(PaaS) war for stateless 12- &hellip;">
+  <meta name="description" content="3rd January, Blog #10 Platform-as-a-Service(PaaS) isn&rsquo;t perfect. There are always going to be some things it does well and some things it does &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry">
+  <link rel="canonical" href="http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Hatofmonkeys" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Service Foundry</h1>
+      <h1 class="entry-title">The Problems With PaaS</h1>
     
     
       <p class="meta">
@@ -96,47 +96,38 @@
   
 
 
-<time datetime="2015-01-02T10:58:00+00:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+<time datetime="2015-01-03T07:59:00+00:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">2nd January, Blog #9</a></h2>
+<div class="entry-content"><h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">3rd January, Blog #10</a></h2>
 
-<h2>Service Foundry</h2>
+<p>Platform-as-a-Service(PaaS) isn&rsquo;t perfect. There are always going to be some things it does well and some things it does badly. This post takes a look at some of the things it does badly, and how we can make improvements in the future.</p>
 
-<p>As I&rsquo;ve mentioned a few times, <a href="https://twitter.com/swardley/status/527680598543187968">Cloud Foundry has won the Platform-as-a-Service(PaaS) war for stateless 12-Factor applications</a>. <a href="http://blog.hatofmonkeys.com/blog/2014/12/30/paasaap-and-the-distro-wars/">Stateless PaaS will now be a Cloud Foundry distro war</a>. <a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">We all know mutable state is the root of all evil</a> so I&rsquo;ve been thinking about a stateful CF-like PaaS since I first interacted with Cloud Foundry. In fact, Cloud Foundry version 1 had an <em>interesting</em> service integration, which served to highlight the gaps in the PaaS journey for stateful application developers. <a href="https://twitter.com/hatofmonkeys/status/511856493512392704">I tweeted a while back</a> about some of the work <a href="http://www.cloudcredo.com/">we&rsquo;re</a> doing in this area; this post will expand on our plans for &lsquo;Service Foundry&rsquo; &ndash; a PaaS for stateful deployments.</p>
+<h3>Stateful services</h3>
 
-<h3>Implementation</h3>
+<p><a href="http://compositecode.com/2013/07/27/architectural-paas-cracks-or-crack-paas/">This excellent article</a> highlights some key points related to problems with PaaS. I absolutely agree that the data service journey with current implementations is painful. I&rsquo;ve written about <a href="http://www.cloudcredo.com/">CloudCredo&rsquo;s</a> plans for <a href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/">&ldquo;Service Foundry&rdquo;</a>; this is work-in-progress and needs to be an area of greater focus. Stateful services need to become first-class citizens in the PaaS landscape.</p>
 
-<ul>
-<li><a href="http://blog.hatofmonkeys.com/blog/2014/12/03/docker/">Docker/Rocket</a> for application packaging</li>
-<li><a href="https://github.com/cloudfoundry-incubator/diego-release">Diego</a> with mutexs for scheduling</li>
-<li><a href="https://github.com/coreos/etcd">Etcd</a>/<a href="https://consul.io/">Consul</a>(reused from Diego&rsquo;s deployment) for service discovery</li>
-<li><a href="https://github.com/zettio/weave">Weave</a> to provide inter-container networking of clustered state</li>
-<li><a href="https://github.com/clusterhq/flocker">Flocker</a> for state relocation/replication</li>
-<li><a href="https://github.com/CloudCredo/bosh-ipsec">BOSH-IPSEC</a> for security of data in-flight</li>
-<li>HAProxy or custom Go router for non-HTTP routing</li>
-<li>Tunable sync/non-sync disk IO</li>
-<li>Expose STONITH semantics to users</li>
-<li>CF-like API for management</li>
-<li>TBC: <a href="https://github.com/CloudCredo/kubernetes-release">Kubernetes</a> for clusters(pods) of containers</li>
-</ul>
+<h3>Maintenance troubles</h3>
 
+<p>I also agree that maintaining PaaSs is currently too difficult. I think this is a symptom of two separate issues. Firstly, the current crop of configuration management tools (Chef/Puppet/Salt/Ansible etc.) are not fit for the purpose of deploying and maintaining distributed systems, such as PaaSs. Secondly, <a href="http://bosh.cfapps.io/">BOSH</a> is the right tool for the job but currently has a difficult user journey. <a href="http://www.cloudcredo.com/">CloudCredo</a> have invested time and effort attempting to make BOSH easier to consume &ndash; but again it&rsquo;s another work-in-progress. We need to get better at making PaaSs easier to operate, maintain, and upgrade.</p>
 
-<h3>Potential</h3>
+<h3>Secure networking</h3>
 
-<p>It&rsquo;s interesting to consider that you could deploy Cloud Foundry itself in such a system. Does this actually look like a manifesto for BOSH version 2? Or does this look more like <a href="https://github.com/openshift/origin">OpenShift v3</a>? The Kubernetes overlap certainly suggests something similar to <a href="https://blog.openshift.com/announcing-openshift-origin-3/">RedHat&rsquo;s latest IaaS+ effort</a>.</p>
+<p><a href="https://medium.com/p/817849715f0a">Another good blog post</a> highlights how networking concerns can block PaaS adoption. Since the writing of that post a couple of advancements have been made. There is now an <a href="https://github.com/CloudCredo/bosh-ipsec">easily consumable BOSH release to enable encrypted network traffic of any BOSH-deployed service</a> &ndash; <a href="http://www.spiegel.de/media/media-35515.pdf">although we should always question how secure our encryption is</a>. There is also <a href="http://docs.cloudfoundry.org/concepts/security.html">user-configurable networking inside Cloud Foundry</a>. I believe these additions go a long way towards mitigating user concerns, but I&rsquo;d certainly be interested in further feedback related to PaaS networking.</p>
 
-<h3>Why is this useful to users?</h3>
+<h3>Transparency</h3>
 
-<p>I&rsquo;ve given talks suggesting that <a href="http://gotocon.com/berlin-2014/presentation/Simple%20Scalability%20-%20Microservices%20on%20PaaS">microservices and PaaS are the future of application development</a>. Cloud Foundry makes it <a href="http://martinfowler.com/bliki/MicroservicePrerequisites.html">incredibly easy to be tall enough for stateless microservices</a>. I want users to have a similarly easy journey for the state powering their microservices.</p>
+<p>The greatest strength of PaaS is that it&rsquo;s a black box for running your applications; it allows developers to focus on delivering value rather than operating a platform. The greatest weakness of PaaS is that it&rsquo;s a black box for running your applications; when things go wrong it can be difficult to work out what&rsquo;s happening. If you application is performing poorly on Heroku, what do you do next? Spend more money and hope? <a href="http://www.cloudcredo.com/cloud-foundry-firehose-and-friends/">Cloud Foundry&rsquo;s new Firehose</a> generates huge volumes of information but can prove difficult to consume for PaaS novices. <a href="http://blog.newrelic.com/2014/10/27/cloud-foundry-java-buildpack-new-relic-2/">Buildpack integration with monitoring systems</a> is clearly helpful but we could still make enhancements in this area.</p>
 
-<p>If you&rsquo;d like to help with this effort please do get in contact with <a href="http://www.cloudcredo.com/contact-us/">CloudCredo</a>.</p>
+<h3>Let&rsquo;s keep PaaS-bashing</h3>
 
-<p><a href="https://www.youtube.com/watch?v=9yGT8QzVzKU">Christmas Garage!</a></p>
+<p>PaaS will only improve if we identify and expose the flaws. We need more users, more critiques, more real-world scenarios. Please <a href="http://www.cloudcredo.com/">get in contact</a> if there&rsquo;s any burning issues blocking your adoption of PaaS.</p>
+
+<p><a href="https://www.youtube.com/watch?v=L3HMogp86cI">Christmas Garage: London &ndash; Stand Up Tall!</a></p>
 </div>
 
 
@@ -159,7 +150,7 @@
   
 
 
-<time datetime="2015-01-02T10:58:00+00:00" pubdate data-updated="true">Jan 2<span>nd</span>, 2015</time>
+<time datetime="2015-01-03T07:59:00+00:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2015</time>
       
 
 
@@ -178,10 +169,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/01/mutable-state/" title="Previous Post: Mutable State">&laquo; Mutable State</a>
+        <a class="basic-alignment left" href="/blog/2015/01/02/service-foundry/" title="Previous Post: Service Foundry">&laquo; Service Foundry</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/03/the-problems-with-paas/" title="Next Post: The Problems With PaaS">The Problems With PaaS &raquo;</a>
       
     </p>
   </footer>
@@ -288,8 +277,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/';
-        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/';
+        var disqus_identifier = 'http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/';
+        var disqus_url = 'http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/';
         var disqus_script = 'embed.js';
       
     (function () {
