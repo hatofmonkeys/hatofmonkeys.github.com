@@ -46,7 +46,7 @@ Use JSON to communicate between your (micro)services. Use JSON templates as ligh
 
 ###Lightweight data
 
-Start with JSON in Redis. Move to JSON in MongoDB when you need to query the data with more flexibility. Place your BLOBs in AWS S3. Once you know whether your data - per (micro)service - needs to be consistent or available you can change data store as required. Cassandra is a great available data store. Postgres is great consistent data store (if you can't afford Oracle RAC, which you can't). If you're generating huge quantities of events throw them into Hadoop.
+Start with JSON in Redis. Move to JSON in MongoDB when you need to query the data with more flexibility. Place your BLOBs in AWS S3. Once you know whether your data - per (micro)service - needs to be consistent or available you can change data store as required. Cassandra is a great available data store. Postgres is a great consistent data store (if you can't afford Oracle RAC, which you can't). If you're generating huge quantities of events throw them into Hadoop.
   
 ###[Mutable state is the enemy](http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/)
 
