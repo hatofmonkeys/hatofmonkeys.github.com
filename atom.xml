@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-04T10:56:38+00:00</updated>
+  <updated>2015-01-04T11:10:42+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -58,7 +58,7 @@
 
 <h3>Lightweight data</h3>
 
-<p>Start with JSON in Redis. Move to JSON in MongoDB when you need to query the data with more flexibility. Place your BLOBs in AWS S3. Once you know whether your data &ndash; per (micro)service &ndash; needs to be consistent or available you can change data store as required. Cassandra is a great available data store. Postgres is great consistent data store (if you can&rsquo;t afford Oracle RAC, which you can&rsquo;t). If you&rsquo;re generating huge quantities of events throw them into Hadoop.</p>
+<p>Start with JSON in Redis. Move to JSON in MongoDB when you need to query the data with more flexibility. Place your BLOBs in AWS S3. Once you know whether your data &ndash; per (micro)service &ndash; needs to be consistent or available you can change data store as required. Cassandra is a great available data store. Postgres is a great consistent data store (if you can&rsquo;t afford Oracle RAC, which you can&rsquo;t). If you&rsquo;re generating huge quantities of events throw them into Hadoop.</p>
 
 <h3><a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">Mutable state is the enemy</a></h3>
 
