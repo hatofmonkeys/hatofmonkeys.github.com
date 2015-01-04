@@ -4,7 +4,7 @@
   <title><![CDATA[Hatofmonkeys]]></title>
   <link href="http://blog.hatofmonkeys.com/atom.xml" rel="self"/>
   <link href="http://blog.hatofmonkeys.com/"/>
-  <updated>2015-01-04T10:53:04+00:00</updated>
+  <updated>2015-01-04T10:56:38+00:00</updated>
   <id>http://blog.hatofmonkeys.com/</id>
   <author>
     <name><![CDATA[Colin Humphreys]]></name>
@@ -421,6 +421,7 @@
 <li><a href="http://blog.hatofmonkeys.com/blog/2015/01/01/mutable-state/">Mutable State</a></li>
 <li><a href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/">Service Foundry</a></li>
 <li><a href="http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/">The Problems With PaaS</a></li>
+<li><a href="http://blog.hatofmonkeys.com/blog/2015/01/04/how-i-build-stuff/">How I Build Stuff</a></li>
 </ol>
 
 ]]></content>
