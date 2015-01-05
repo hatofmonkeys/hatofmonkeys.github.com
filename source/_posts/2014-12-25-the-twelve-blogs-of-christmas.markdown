@@ -41,3 +41,4 @@ Let the blogging commence!
 9. [Service Foundry](http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/)
 10. [The Problems With PaaS](http://blog.hatofmonkeys.com/blog/2015/01/03/the-problems-with-paas/)
 11. [How I Build Stuff](http://blog.hatofmonkeys.com/blog/2015/01/04/how-i-build-stuff/)
+12. [The CloudCredo Way](http://blog.hatofmonkeys.com/blog/2015/01/05/the-cloudcredo-way/)
