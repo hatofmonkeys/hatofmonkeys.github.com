@@ -60,4 +60,6 @@ Customising Cloud Foundry is remarkably easy; do it when requirements demand. Ad
 
 In summary: get fast feedback about the software you're bringing to life. Fail fast if you're doing the wrong thing. Don't over-engineer; do what works, deliver quickly. Realise the opportunity cost of your (and your team's) time. Could you be building something more valuable instead?
 
+***
+
 [Christmas Garage! This one's relatively recent. And good.](https://www.youtube.com/watch?v=W_vM8ePGuRM)

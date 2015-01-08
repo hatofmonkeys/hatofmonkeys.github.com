@@ -32,4 +32,6 @@ The greatest strength of PaaS is that it's a black box for running your applicat
 
 PaaS will only improve if we identify and expose the flaws. We need more users, more critiques, more real-world scenarios. Please [get in contact](http://www.cloudcredo.com/) if there's any burning issues blocking your adoption of PaaS.
 
+***
+
 [Christmas Garage: London - Stand Up Tall!](https://www.youtube.com/watch?v=L3HMogp86cI)

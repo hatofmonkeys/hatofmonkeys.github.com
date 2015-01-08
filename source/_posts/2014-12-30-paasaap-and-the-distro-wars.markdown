@@ -17,4 +17,6 @@ The other fascinating aspect of the development of the Cloud Foundry ecosystem i
 
 We will also see domain-specific Cloud Foundy implementations for particular markets. The 'core' Cloud Foundry specification, provided by the CF Foundation, will provide a key set of capabilities and an API for developers to work against - but we will see extensions providing for additional requirements and innovation. Time will tell which flavours of Cloud Foundry are successful and which are left behind.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=iWRSOtAKcMY)

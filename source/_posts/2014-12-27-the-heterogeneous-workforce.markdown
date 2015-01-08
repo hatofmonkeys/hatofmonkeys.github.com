@@ -16,4 +16,6 @@ As a company CEO I see this as a tremendous waste. The key role I play in the co
 
 If you're interested in PaaS, distributed systems, and Extreme Programming, please do contact [CloudCredo](http://www.cloudcredo.com/contact-us/) - especially if you don't 'fit the mould'. We're looking for fast learners and good communicators. I'd love to think there's a pool of untapped skills out there I can use to help build our team. I can't promise to run the perfect company, but I can promise to try.
 
+***
+
 [More Christmas UKG!](https://www.youtube.com/watch?v=YYxbzdbKvPo)

@@ -35,4 +35,6 @@ We were overjoyed with the Summit from a CloudCredo perspective. The ecosystem's
 
 We'd love to be able to add your organisation's name to that list. Please [get in contact](http://www.cloudcredo.com/contact-us/) to talk about how we can help you deliver with Cloud Foundry.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=8CFESsXwntk)

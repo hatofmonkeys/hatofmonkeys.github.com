@@ -37,4 +37,6 @@ When I've needed to deploy Cloud Foundry across multiple regions it has usually 
 
 I'm currently deploying multi-zone 'consistent CF' - and then multi-region 'available CF' if requirements demand it. This is a domain specific choice; and it takes a significant amount of work in the application(particularly around state) to bring multi-region availability.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=RQLQ7W2RoKA)

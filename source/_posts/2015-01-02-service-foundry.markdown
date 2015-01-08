@@ -36,4 +36,6 @@ I've given talks suggesting that [microservices and PaaS are the future of appli
 
 If you'd like to help with this effort please do get in contact with [CloudCredo](http://www.cloudcredo.com/contact-us/).
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=9yGT8QzVzKU)

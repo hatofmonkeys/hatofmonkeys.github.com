@@ -45,4 +45,6 @@ cf push redis/redis --disk 100 --restart-policy available --disk-sync defer --io
 
 The "Two PaaS" debate has led to some people perceiving Cloud Foundry as a stateless PaaS and BOSH as a stateful PaaS. I believe this is an incorrect interpretation. I think BOSH is a fantastic system - it has had a greater influence on me than Cloud Foundry itself - but it is not a PaaS. BOSH is the purest embodiment of the principles of Infrastructure as Code: it fires up metal, lays down code, and attaches disks for state. It is not, in its current form, a scheduler in the manner of Mesos/Omega. BOSH is the world's best deployer of schedulers and distributed systems. A stateful PaaS would look more like [Diego](https://github.com/cloudfoundry-incubator/diego-release)/[Lattice](https://github.com/pivotal-cf-experimental/lattice), modified to address the concerns above. BOSH would be a great way to deploy this new PaaS.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=hQilwacuBO0)

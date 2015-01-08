@@ -27,4 +27,6 @@ Whilst the future may look bright for containers, there are some warning signs. 
 
 I think CaaS will grow exponentially over the next few years. [Tutum](https://www.tutum.co/) are building the first pure CaaS I've seen. They attracted $2.65M in seed funding this year. I'm sure they'll have plenty of competition in the near future.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=02KRAshCG0w)

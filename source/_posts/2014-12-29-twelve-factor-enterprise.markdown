@@ -17,4 +17,6 @@ We need to stop telling enterprises that modern patterns, such as 12 Factor and 
 
 Enterprises can adopt 12 Factor, Microservices, and PaaS. They want to be more agile, not less. Let's help them.
 
+***
+
 [Christmas Garage!](https://www.youtube.com/watch?v=koZeLiJdvJk)
