@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="5th January, Blog #12 The CloudCredo Way Today, January 5th, is the last day of the twelve days of Christmas, so this is the last blog in The Twelve &hellip;">
+  <meta name="description" content="I love BOSH. I have many conversations with people about where BOSH is going so I thought it a good idea to capture my thinking in a post. This post &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/06/16/the-future-of-bosh/">The Future of BOSH</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-06-16T14:16:00+01:00" pubdate data-updated="true">Jun 16<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I <a href="http://blog.hatofmonkeys.com/blog/2014/03/15/configuration-management-isnt-stupid/">love BOSH</a>. I have many conversations with people about where BOSH is going so I thought it a good idea to capture my thinking in a post. This post.</p>
+
+<h3>Two Options</h3>
+
+<ol>
+<li><p>BOSH deploys and manages all the things. It&rsquo;s the best distributed-system-system I&rsquo;ve ever used.</p></li>
+<li><p>BOSH should be the deployer of Diego and other container schedulers.</p>
+
+<ul>
+<li>Diego et al deploy and manage all the things.</li>
+<li>Diego becomes something like <a href="http://blog.hatofmonkeys.com/blog/2015/01/02/service-foundry/">Service Foundry</a>.</li>
+<li>The world is a better place because non-<a href="http://12factor.net/">12-Factor</a>-app developers have a contract to develop to, and the fast-feedback of container-driven deployments.</li>
+</ul>
+</li>
+</ol>
+
+
+<p>I currently favour option 2 but reserve the right to change my mind as I learn over time. Previous attempts to build multi-purpose stateful/stateless PaaSs haven&rsquo;t gone <em>amazingly</em> well. If you&rsquo;re building a stateful service right now, build it for BOSH, not Diego.</p>
+
+<h3>What Next?</h3>
+
+<p>We&rsquo;ll be exploring the cool new future of Diego in a <a href="http://www.meetup.com/London-PaaS-User-Group-LOPUG/events/222965597/">LoPUG hack day</a> and looking at ideas like a Diego CPI for BOSH, persistent disks, and TCP networking in PaaS. Join us to find out more.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -737,54 +794,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/27/the-heterogeneous-workforce/">The Heterogeneous Workforce</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-27T10:20:00+00:00" pubdate data-updated="true">Dec 27<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2><a href="http://blog.hatofmonkeys.com/blog/2014/12/25/the-twelve-blogs-of-christmas/">27th December, Blog #3</a></h2>
-
-<h2>The Heterogeneous Workforce</h2>
-
-<p>I enjoy regularly visiting and speaking at tech conferences. They&rsquo;re a great way to stay abreast of trends and keep a fresh perspective on how the industry is delivering value. Unfortunately I&rsquo;m usually dismayed at the homogeneous composition of the conference attendees; the overwhelming majority are white males, like myself.</p>
-
-<p>As a company CEO I see this as a tremendous waste. The key role I play in the company is the recruitment and retention of the members of our great team. Enlarging the pool of resource I can draw from will only increase the quality of the team, the diversity of opinions, and create a balanced working environment. I&rsquo;m not trying to get on my moral high horse; I want a better team so I can make more money.</p>
-
-<p>If you&rsquo;re interested in PaaS, distributed systems, and Extreme Programming, please do contact <a href="http://www.cloudcredo.com/contact-us/">CloudCredo</a> &ndash; especially if you don&rsquo;t &lsquo;fit the mould&rsquo;. We&rsquo;re looking for fast learners and good communicators. I&rsquo;d love to think there&rsquo;s a pool of untapped skills out there I can use to help build our team. I can&rsquo;t promise to run the perfect company, but I can promise to try.</p>
-
-<hr />
-
-<p><a href="https://www.youtube.com/watch?v=YYxbzdbKvPo">More Christmas UKG!</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -800,6 +809,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/16/the-future-of-bosh/">The Future of BOSH</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/05/the-cloudcredo-way/">The CloudCredo Way</a>
       </li>
     
@@ -813,10 +826,6 @@
     
       <li class="post">
         <a href="/blog/2015/01/02/service-foundry/">Service Foundry</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/01/mutable-state/">Mutable State</a>
       </li>
     
   </ul>

@@ -9,7 +9,7 @@
   <meta name="author" content="Colin Humphreys">
 
   
-  <meta name="description" content="I’ve always(well, for longer than my attention span) been a massive fan of outside-in development via BDD, in particular Cucumber. Despite this &hellip;">
+  <meta name="description" content="I was fortunate in being able to attend Citcon this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,68 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/13/the-testing-pipeline/">The Testing Pipeline</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-13T11:11:00+00:00" pubdate data-updated="true">Nov 13<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I was fortunate in being able to attend <a href="http://citconf.com/london2011/">Citcon</a> this weekend and met some wonderful, talented people. I proposed a couple of openspaces, one loosely based on <a href="blog/2011/11/06/automating-value/">automating value</a> and the other around test reuse.</p>
+
+<p>I&rsquo;ve been thinking for a while about how I see people (including myself) rewrite the same business logic in our behavioural specifications, for our integration tests, for our performance tests, for our security tests, and for our behaviour-driven monitoring. This seems counter-intuitive to someone as lazy as I am.</p>
+
+<p>I think we should reconsider the deployment pipeline as a testing pipeline. The purpose of the pipeline is to increase confidence in the release candidate as the stages are passed. These stages can be considered as hoops for the release candidates to jump through. As new functionality is added, so the hoops will need to be tailored to ensure the new functionality is fit for purpose.</p>
+
+<p>Here&rsquo;s an idea of a delivery pipeline I&rsquo;ve seen used many times before. It&rsquo;s in no way ideal, nor suitable for every use case, but it provides an example for discussion:</p>
+
+<p>Behaviours(product owner) &ndash;> unit(dev) &ndash;> <strong>code</strong>(dev) &ndash;> VCS &ndash;> unit tests(CI) &ndash;> behavioural tests(UAT) &ndash;> load tests(staging) &ndash;> security tests(staging) &ndash;> monitoring(production)</p>
+
+<p>The issue I&rsquo;m attempting to highlight is that as desired functionality is added by the product owner (typically as a feature in the backlog) and committed to a release candidate by the developer, so the hoops need to ensure that the new functionality is delivered as specified, and no regression bugs have been introduced. This typically involves either the new functionality going untested through load/security/monitoring, or a developer/operations person having to rewrite the new business logic repeatedly in the DSLs of whichever tools are used to create the hoops.</p>
+
+<p>I&rsquo;m currently using <a href="http://auxesis.github.com/cucumber-nagios/">cucumber-nagios</a> to reuse our functional behaviours for monitoring and I&rsquo;ve also had some success using <a href="http://www.pushtotest.com/">PushToTest</a> with Selenium from Cucumber. I&rsquo;ve yet to look at how to tackle security requirements. Please get in contact with me if you&rsquo;ve had any success reusing your business logic assertions throughout your pipeline; I&rsquo;d be very interested to hear about your experiences.</p>
+
+<p>My (current) vision would be that, either as a part of or along with a release candidate, an artefact is created that outlines the business value assertions made about the candidate. As the candidate then moves through the pipeline, so the hoops are updated with the relevant assertions they need to test about the candidate. These could be a certain number of virtual users through the user journeys in the expected ratios, lack of injection holes in the application, the application&rsquo;s ability to degrade gracefully through various failure modes, and anything else that&rsquo;s required to establish confidence in the release candidate.</p>
+
+<p>You should be able to make an API call to cloud-based testing providers(such as <a href="http://www.soasta.com/">Soasta</a>) so they can use your artefact to automatically test the behaviour of your application, such as external load and security tests. The feedback from these providers can be returned to your CI server for tracking over time, and form a basis for diagnosis of any assertion failures.</p>
+
+<p>Without a fully-automated testing pipeline, I see one of two outcomes regularly at the moment:</p>
+
+<ul>
+<li>New functionality is not tested before release. This implies risk.</li>
+<li>Releases are delayed while scripts are updated, and manual load/security tests booked with vendors and executed. This inhibits business agility and delays feedback cycles.</li>
+</ul>
+
+
+<p>I&rsquo;m attempting to write an abstraction layer for Cucumber scenarios to be reused in load tests, if you&rsquo;re interested in helping please get in touch. I&rsquo;ll post it on the <a href="https://github.com/hatofmonkeys">Githubs</a> once I&rsquo;ve got something small working.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -263,6 +325,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/06/16/the-future-of-bosh/">The Future of BOSH</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/05/the-cloudcredo-way/">The CloudCredo Way</a>
       </li>
     
@@ -276,10 +342,6 @@
     
       <li class="post">
         <a href="/blog/2015/01/02/service-foundry/">Service Foundry</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/01/01/mutable-state/">Mutable State</a>
       </li>
     
   </ul>
